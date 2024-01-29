@@ -49,12 +49,14 @@
 - 메인화면
 ![스크린샷 2024-01-29 104555](https://github.com/yeongtaekjeong/detox_system/assets/147578834/b8ac89e1-7e65-451f-b866-f5f2be08a3ef)
 
-- 문진화면 - 사용자 입력
+
+- 문진화면 : 사용자 입력
 ![스크린샷 2024-01-29 104600](https://github.com/yeongtaekjeong/detox_system/assets/147578834/df7aae05-8034-4907-b600-1ef9155f6f26)
 
 
-- 문진화면 - 문진항목 입력
+- 문진화면 : 문진항목 입력
 ![스크린샷 2024-01-29 104607](https://github.com/yeongtaekjeong/detox_system/assets/147578834/08d4395d-ab5d-415a-8791-2a2d45340617)
+
 ![스크린샷 2024-01-29 104612](https://github.com/yeongtaekjeong/detox_system/assets/147578834/0b6a03a3-72d8-442a-9627-05b60a8ab261)
 
 
