@@ -14,11 +14,8 @@
     - 데이터 베이스
         - postgresDB 3.2.16 : 사용자 정보, 문진 및 설진 정보 데이터 적재
         
-        ![- 데이터 테이블 관계 내용](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/468754ec-62e9-4801-8d11-8996d8eaa05f/Untitled.png)
+        ![스크린샷 2024-01-29 104541](https://github.com/yeongtaekjeong/detox_system/assets/147578834/439f6f0f-36c4-458a-9a36-5e1c8251d32a)
         
-        - 데이터 테이블 관계 내용
-        
-    
     - 언어 및 프레임워크
         - Python 3.8.6 : 개발 언어
         - django 3.2.16 : python 기반 웹 개발 프레임워크
@@ -26,8 +23,7 @@
     - 배포 및 관리
         - Github
         - vagrant (가상환경 5개 구성)
-            
-            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/b6254b64-1581-46b0-b23d-95d0829b9f3f/Untitled.png)
+            ![스크린샷 2024-01-29 104547](https://github.com/yeongtaekjeong/detox_system/assets/147578834/d1018867-67ff-4cfb-a9b4-19be0a267d8a)
             
         - Ubuntu 20.04
         - nginx(WAS)
@@ -51,39 +47,35 @@
         - 가상환경 내 Ubuntu 서버에 배포 및 도메인 적용
 
 - 메인화면
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/6d018354-5c88-4932-9a68-0f546aabadba/Untitled.png)
+![스크린샷 2024-01-29 104555](https://github.com/yeongtaekjeong/detox_system/assets/147578834/b8ac89e1-7e65-451f-b866-f5f2be08a3ef)
 
 - 문진화면 - 사용자 입력
+![스크린샷 2024-01-29 104600](https://github.com/yeongtaekjeong/detox_system/assets/147578834/df7aae05-8034-4907-b600-1ef9155f6f26)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/67ae1263-f5ee-44cc-9098-295b34835e32/Untitled.png)
 
 - 문진화면 - 문진항목 입력
+![스크린샷 2024-01-29 104607](https://github.com/yeongtaekjeong/detox_system/assets/147578834/08d4395d-ab5d-415a-8791-2a2d45340617)
+![스크린샷 2024-01-29 104612](https://github.com/yeongtaekjeong/detox_system/assets/147578834/0b6a03a3-72d8-442a-9627-05b60a8ab261)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/11fd2fab-8a7b-46aa-8ba5-4b03317c6ade/Untitled.png)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/9ef9919e-89db-4a4c-a5fe-59a9708e212d/Untitled.png)
 
 - 문진 결과화면
+![스크린샷 2024-01-29 104617](https://github.com/yeongtaekjeong/detox_system/assets/147578834/d9e35242-ef88-486b-81a2-c38d79fc5bec)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/a7d60940-1ad7-487f-a38e-312d6c025603/Untitled.png)
 
 - 문진 완료 및 대기자 목록 화면
+![스크린샷 2024-01-29 104622](https://github.com/yeongtaekjeong/detox_system/assets/147578834/f1bc26b4-f9ea-41f6-baea-cc7054e8742b)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/0158f113-ff57-4cfb-9449-6fa061d520ba/Untitled.png)
 
 - 설진 화면
+![스크린샷 2024-01-29 104630](https://github.com/yeongtaekjeong/detox_system/assets/147578834/18621905-9efa-4c24-adf6-71e980af4119)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/41f3c6ea-f6cf-4081-95a8-e975fd2d25f2/Untitled.png)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/c2d60d70-6294-47c2-8340-9c6a5b5ea4ca/Untitled.png)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/a2e33630-da85-4857-85ae-bf6aa267c0c7/Untitled.png)
 
 - 설진 완료 및 처방 화면
+![스크린샷 2024-01-29 104646](https://github.com/yeongtaekjeong/detox_system/assets/147578834/c5a5fecc-4b39-4368-a0b6-79263e8510e9)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/355086dc-f7d8-4f21-9109-f48329e87ce2/Untitled.png)
+![스크린샷 2024-01-29 104652](https://github.com/yeongtaekjeong/detox_system/assets/147578834/537555b1-c289-4e85-a2ef-823e25aa6e39)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/d4060361-b533-44a8-b5e0-251fca344198/Untitled.png)
+![스크린샷 2024-01-29 104657](https://github.com/yeongtaekjeong/detox_system/assets/147578834/1b809ade-1ae9-4ac0-9e84-cb9d379a01de)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d59024f-aa47-420a-9bd6-96cc144d126c/137003d0-3ef7-41f1-b6cc-49b52e6e735f/Untitled.png)
+
+
