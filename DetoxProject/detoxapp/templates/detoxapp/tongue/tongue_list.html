@@ -1,0 +1,253 @@
+{% extends "index_base.html" %}
+
+{% block contents %}
+{% load static %}
+<link href="{% static 'detoxapp/css/progress.css' %}" rel="stylesheet" >
+
+<section class="py-5">
+    <!-- Page Content-->
+    <div class="container px-5 my-5">
+        <div class="text-center mb-4">
+            <h1 class="display-5 fw-bolder mb-0">
+                <span class="text-gradient d-inline">{% if pageinfo == 'prescription' %} 처방 {% elif pageinfo == 'tongue' %} 설진 {% endif %} 대기 인원</span></h1>
+        </div>
+        <div class="row gx-5 mb-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+            <form class="mb-4" action="/tongue_list/{{pageinfo}}" method="GET">
+                <label for="datePicker"><span class="material-symbols-outlined">
+                    date_range
+                    </span></label>
+                <input type="text" class="rounded-4 col-4 p-2"  id="datePicker" placeholder="선택" name="selectdate" value="{{condition_date}}" style="text-align: right;" />
+                <button type="submit" id="datebtn" hidden></button>
+            </form>
+            </div>
+        </div>
+        <!-- {% if user_info|length == 0 %}
+        <div class="text-center mb-5">
+            <h3 class="mb-0"><span class="d-inline" style="color: #aaaaaa;">문진 및 설진 대기 인원이 없습니다.</span></h3>
+        </div>
+        {% endif %} -->
+            
+        <div class="row gx-5 justify-content-center">
+        <div class="col-lg-11 col-xl-9 col-xxl-8">
+            <!-- Experience Section-->
+
+            {% if pageinfo == 'tongue' %}
+                {% if user_info_1 == 0 %}
+                <div class="text-center mb-5">
+                    <h3 class="mb-0"><span class="d-inline" style="color: #888;">설진 대기 인원이 없습니다.</span></h3>
+                </div>
+                <hr class="my-2 mb-3">
+                {% else %}
+                <div class="text-start mb-2">
+                    <h6 class="mb-0"><span class="d-inline fw-bolder text-primary" style="text-align: left;">- 설진 대기 {{user_info_1 }} 건</span></h6>
+                </div>
+                {% endif %}
+
+            {% elif pageinfo == 'prescription' %}
+                {% if user_info_2 == 0 %}
+                <div class="text-center mb-5">
+                    <h3 class="mb-0"><span class="d-inline" style="color: #888;">처방 대기 인원이 없습니다.</span></h3>
+                </div>
+                <hr class="my-2 mb-3">
+                {% else %}
+                <div class="text-start mb-2">
+                    <h6 class="mb-0"><span class="d-inline fw-bolder text-primary" style="text-align: left;">- 처방 대기 {{user_info_2 }} 건</span></h6>
+                </div>
+                {% endif %}
+            {% endif %}
+
+            <section>
+                <!-- Experience Card 1-->
+                {% for u in user_info %}
+                <div class="card shadow border-0 rounded-4 mb-4">
+                    <div class="card-body p-5">
+                        <form action="/tongue_detail/" method="GET">
+                            {% csrf_token %}
+                            <input type="text" value="{{u.user_sq}}" name="user_sq" hidden>
+                            <input type="text" value="{{u.user_id}}" name="user_id" hidden>
+                            <input type="text" value="{{u.question_sq}}" name="question_sq" hidden>
+                        
+                            <div class="row align-items-center gx-5">
+                                <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                    <div class="bg-light p-4 rounded-4">
+                                        <div class="text-primary fw-bolder mb-2">{{ u.user_name }}</div>
+                                        <div class="small text-muted">{{ u.user_birth }}세</div>
+                                        {% if u.user_gender == 0 %}
+                                        <div class="small text-muted">남성</div>
+                                        {% else %}
+                                        <div class="small text-muted">여성</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            
+                                <div class="col-lg-8">
+                                    <div class="label-container">
+                                        <span class="circle-label active">접수</span>
+                                        <span class="circle-label active">문진</span>
+                                        {% if u.state == 2 or u.state == 0 %}
+                                        <span class="circle-label active">설진</span>
+                                        {% else %}
+                                        <span class="circle-label">설진</span>
+                                        {% endif %}
+                                        {% if u.state == 0 %}
+                                        <span class="circle-label active">처방</span>
+                                        {% else %}
+                                        <span class="circle-label">처방</span>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="progress-container">                                     
+                                        <div class="circle active">1</div>
+                                        <div class="circle active">2</div>
+
+                                        {% if u.state == 2 or u.state == 0  %}
+                                        <div class="circle active">3</div>
+                                        {% else %}
+                                        <div class="circle">3</div>
+                                        {% endif %}
+
+                                        {% if u.state == 0 %}
+                                        <div class="circle active">4</div>
+                                        {% else %}
+                                        <div class="circle">4</div>
+                                        {% endif %}
+
+                                        {% if u.state == 2 %}
+                                        <div class="progressbar" id="progress" style="width:66%"></div>
+                                        {% elif u.state == 0 %}
+                                        <div class="progressbar" id="progress" style="width:100%"></div>
+                                        {% else %}
+                                        <div class="progressbar" id="progress" style="width:33%"></div>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="small">문진일시 : {{ u.create_date|date:"Y.m.d H:i:s" }}</div>
+                                        <div class="small">전화번호 : {{ u.user_phone }}</div>
+                                    </div>
+                                    <br>
+                                    {% if u.state == 1 %}
+                                    <button type="submit" class="btn btn-outline-primary col-sm-5">설진 진행하기</button>
+                                    {% elif u.state == 2 %}
+                                    <p class="text-success fw-bolder mb-2 col-sm-5" disabled>● 설진완료</p>
+                                    {% elif u.state == 0 %}
+                                    <p class="text-primary fw-bolder mb-2 col-sm-5" disabled>● 처방완료</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </form>
+                        {% if u.state == 2 or u.state == 0 %}
+                        <form action="/prescription/" method="post" style="text-align: center;">
+                        {% csrf_token %}
+                            <input type="text" value="{{u.user_sq}}" name="user_sq" hidden>
+                            <input type="text" value="{{u.user_id}}" name="user_id" hidden>
+                            <input type="text" value="{{u.question_sq}}" name="question_sq" hidden>
+                            <button type="submit" class="btn btn-primary col-sm-3">처방 결과보기</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %} 
+                </section>
+
+
+                <div class="text-start mb-2">
+                    <h6 class="mb-0"><span class="d-inline" style="text-align: left;">- 처방 완료 {{user_info_0|length }} 건</span></h6>
+                </div>
+                <section>
+                    <!-- Experience Card 1-->
+                    {% for u in user_info_0 %}
+                    <div class="card shadow border-0 rounded-4 mb-4">
+                        <div class="card-body p-5">
+                            <form action="/tongue_detail/" method="GET">
+                                {% csrf_token %}
+                                <input type="text" value="{{u.user_sq}}" name="user_sq" hidden>
+                                <input type="text" value="{{u.user_id}}" name="user_id" hidden>
+                                <input type="text" value="{{u.question_sq}}" name="question_sq" hidden>
+                            
+                                <div class="row align-items-center gx-5">
+                                    <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                        <div class="bg-light p-4 rounded-4">
+                                            <div class="text-primary fw-bolder mb-2">{{ u.user_name }}</div>
+                                            <div class="small text-muted">{{ u.user_birth }}세</div>
+                                            {% if u.user_gender == 0 %}
+                                            <div class="small text-muted">남성</div>
+                                            {% else %}
+                                            <div class="small text-muted">여성</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-8">
+                                        <div class="label-container">
+                                            <span class="circle-label active">접수</span>
+                                            <span class="circle-label active">문진</span>
+                                            <span class="circle-label active">설진</span>
+                                            <span class="circle-label active">처방</span>
+                                        </div>
+    
+                                        <div class="progress-container">                                     
+                                            <div class="circle active">1</div>
+                                            <div class="circle active">2</div>
+                                            <div class="circle active">3</div>
+                                            <div class="circle active">4</div>
+    
+                                            <div class="progressbar" id="progress" style="width:100%"></div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="small">문진일시 : {{ u.create_date|date:"Y.m.d H:i:s" }}</div>
+                                            <div class="small">전화번호 : {{ u.user_phone }}</div>
+                                        </div>
+                                        <br>
+                                        <p class="text-primary fw-bolder mb-2 col-sm-5" disabled>● 처방완료</p>
+                                    </div>
+                                </div>
+                            </form>
+                            <form action="/prescription/" method="post" style="text-align: center;">
+                            {% csrf_token %}
+                                <input type="text" value="{{u.user_sq}}" name="user_sq" hidden>
+                                <input type="text" value="{{u.user_id}}" name="user_id" hidden>
+                                <input type="text" value="{{u.question_sq}}" name="question_sq" hidden>
+                                <button type="submit" class="btn btn-primary col-sm-3">처방 결과보기</button>
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %} 
+                    </section>
+
+            </div>
+        </div>
+
+    </div>
+    </section>
+</main>
+</body>
+</html>
+
+<script>
+	$(function() {	
+		$('#datePicker').datepicker({
+            dateFormat: 'yy-mm-dd' //달력 날짜 형태
+           ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+           ,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
+           ,changeYear: true //option값 년 선택 가능
+           ,changeMonth: true //option값  월 선택 가능                 
+           ,yearSuffix: "년" //달력의 년도 부분 뒤 텍스트
+           ,monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 텍스트
+           ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip
+           ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 텍스트
+           ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
+           ,minDate: "-5Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+           ,maxDate: "+5y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후) 
+		});//datepicker end
+	});//ready end
+
+    $('#datePicker').change(function(){
+        $('#datebtn').trigger('click')
+    })
+
+
+</script>
+{% endblock %}

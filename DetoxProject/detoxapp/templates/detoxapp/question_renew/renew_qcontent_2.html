@@ -1,0 +1,816 @@
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="건강 척도">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* 각 항목별 증상의 강함 정도를 선택해주세요. (오른쪽 일수록 긍정적인 답변 입니다.)</p>
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="appetite">식욕</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 전혀 없음 ~ (5) 매우 왕성</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="appetite" id="appetite1" value="1" required>
+                        <label class="form-check-label" for="appetite1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="appetite" id="appetite2" value="2" required>
+                        <label class="form-check-label" for="appetite2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="appetite" id="appetite3" value="3" required>
+                        <label class="form-check-label" for="appetite3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="appetite" id="appetite4" value="4" required>
+                        <label class="form-check-label" for="appetite4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="appetite" id="appetite5" value="5" required>
+                        <label class="form-check-label" for="appetite5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="digestion">소화</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 전혀 안됨 ~ (5) 매우 잘됨</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="digestion" id="digestion1" value="1" required>
+                        <label class="form-check-label" for="digestion1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="digestion" id="digestion2" value="2" required>
+                        <label class="form-check-label" for="digestion2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="digestion" id="digestion3" value="3" required>
+                        <label class="form-check-label" for="digestion3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="digestion" id="digestion4" value="4" required>
+                        <label class="form-check-label" for="digestion4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="digestion" id="digestion5" value="5" required>
+                        <label class="form-check-label" for="digestion5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="foo">대변</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 불편함 ~ (5) 매우 잘봄</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="foo" id="foo1" value="1" required>
+                        <label class="form-check-label" for="foo1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="foo" id="foo2" value="2" required>
+                        <label class="form-check-label" for="foo2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="foo" id="foo3" value="3" required>
+                        <label class="form-check-label" for="foo3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="foo" id="foo4" value="4" required>
+                        <label class="form-check-label" for="foo4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="foo" id="foo5" value="5" required>
+                        <label class="form-check-label" for="foo5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="fee">소변</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 불편함 ~ (5) 매우 잘봄</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fee" id="fee1" value="1" required>
+                        <label class="form-check-label" for="fee1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fee" id="fee2" value="2" required>
+                        <label class="form-check-label" for="fee2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fee" id="fee3" value="3" required>
+                        <label class="form-check-label" for="fee3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fee" id="fee4" value="4" required>
+                        <label class="form-check-label" for="fee4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fee" id="fee5" value="5" required>
+                        <label class="form-check-label" for="fee5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="sleep">수면</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 전혀 못잠 ~ (5) 매우 잘잠</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sleep" id="sleep1" value="1" required>
+                        <label class="form-check-label" for="sleep1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sleep" id="sleep2" value="2" required>
+                        <label class="form-check-label" for="sleep2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sleep" id="sleep3" value="3" required>
+                        <label class="form-check-label" for="sleep3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sleep" id="sleep4" value="4" required>
+                        <label class="form-check-label" for="sleep4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sleep" id="sleep5" value="5" required>
+                        <label class="form-check-label" for="sleep5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="stress">스트레스</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="stress" id="stress1" value="1" required>
+                        <label class="form-check-label" for="stress1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="stress" id="stress2" value="2" required>
+                        <label class="form-check-label" for="stress2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="stress" id="stress3" value="3" required>
+                        <label class="form-check-label" for="stress3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="stress" id="stress4" value="4" required>
+                        <label class="form-check-label" for="stress4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="stress" id="stress5" value="5" required>
+                        <label class="form-check-label" for="stress5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="sweat">땀</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 전혀 안남  ~ (5) 매우 많이 남</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sweat" id="sweat1" value="1" required>
+                        <label class="form-check-label" for="sweat1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sweat" id="sweat2" value="2" required>
+                        <label class="form-check-label" for="sweat2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sweat" id="sweat3" value="3" required>
+                        <label class="form-check-label" for="sweat3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sweat" id="sweat4" value="4" required>
+                        <label class="form-check-label" for="sweat4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sweat" id="sweat5" value="5" required>
+                        <label class="form-check-label" for="sweat5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="coldhand">수족냉증</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="coldhand" id="coldhand1" value="1" required>
+                        <label class="form-check-label" for="coldhand1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="coldhand" id="coldhand2" value="2" required>
+                        <label class="form-check-label" for="coldhand2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="coldhand" id="coldhand3" value="3" required>
+                        <label class="form-check-label" for="coldhand3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="coldhand" id="coldhand4" value="4" required>
+                        <label class="form-check-label" for="coldhand4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="coldhand" id="coldhand5" value="5" required>
+                        <label class="form-check-label" for="coldhand5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="hand_numb">손발저림</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hand_numb" id="hand_numb1" value="1" required>
+                        <label class="form-check-label" for="hand_numb1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hand_numb" id="hand_numb2" value="2" required>
+                        <label class="form-check-label" for="hand_numb2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hand_numb" id="hand_numb3" value="3" required>
+                        <label class="form-check-label" for="hand_numb3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hand_numb" id="hand_numb4" value="4" required>
+                        <label class="form-check-label" for="hand_numb4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hand_numb" id="hand_numb5" value="5" required>
+                        <label class="form-check-label" for="hand_numb5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="headache">두통</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="headache" id="headache1" value="1" required>
+                        <label class="form-check-label" for="headache1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="headache" id="headache2" value="2" required>
+                        <label class="form-check-label" for="headache2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="headache" id="headache3" value="3" required>
+                        <label class="form-check-label" for="headache3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="headache" id="headache4" value="4" required>
+                        <label class="form-check-label" for="headache4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="headache" id="headache5" value="5" required>
+                        <label class="form-check-label" for="headache5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="whirl">어지러움</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="whirl" id="whirl1" value="1" required>
+                        <label class="form-check-label" for="whirl1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="whirl" id="whirl2" value="2" required>
+                        <label class="form-check-label" for="whirl2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="whirl" id="whirl3" value="3" required>
+                        <label class="form-check-label" for="whirl3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="whirl" id="whirl4" value="4" required>
+                        <label class="form-check-label" for="whirl4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="whirl" id="whirl5" value="5" required>
+                        <label class="form-check-label" for="whirl5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="tumepy">부종</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tumepy" id="tumepy1" value="1" required>
+                        <label class="form-check-label" for="tumepy1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tumepy" id="tumepy2" value="2" required>
+                        <label class="form-check-label" for="tumepy2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tumepy" id="tumepy3" value="3" required>
+                        <label class="form-check-label" for="tumepy3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tumepy" id="tumepy4" value="4" required>
+                        <label class="form-check-label" for="tumepy4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tumepy" id="tumepy5" value="5" required>
+                        <label class="form-check-label" for="tumepy5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="thrist">갈증</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="thrist" id="thrist1" value="1" required>
+                        <label class="form-check-label" for="thrist1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="thrist" id="thrist2" value="2" required>
+                        <label class="form-check-label" for="thrist2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="thrist" id="thrist3" value="3" required>
+                        <label class="form-check-label" for="thrist3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="thrist" id="thrist4" value="4" required>
+                        <label class="form-check-label" for="thrist4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="thrist" id="thrist5" value="5" required>
+                        <label class="form-check-label" for="thrist5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="shoulder_pain">경향통<br>(뒷목 / 어깨 통증)</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="shoulder_pain" id="shoulder_pain1" value="1" required>
+                        <label class="form-check-label" for="shoulder_pain1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="shoulder_pain" id="shoulder_pain2" value="2" required>
+                        <label class="form-check-label" for="shoulder_pain2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="shoulder_pain" id="shoulder_pain3" value="3" required>
+                        <label class="form-check-label" for="shoulder_pain3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="shoulder_pain" id="shoulder_pain4" value="4" required>
+                        <label class="form-check-label" for="shoulder_pain4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="shoulder_pain" id="shoulder_pain5" value="5" required>
+                        <label class="form-check-label" for="shoulder_pain5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="chest">가슴답답</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="chest" id="chest1" value="1" required>
+                        <label class="form-check-label" for="chest1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="chest" id="chest2" value="2" required>
+                        <label class="form-check-label" for="chest2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="chest" id="chest3" value="3" required>
+                        <label class="form-check-label" for="chest3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="chest" id="chest4" value="4" required>
+                        <label class="form-check-label" for="chest4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="chest" id="chest5" value="5" required>
+                        <label class="form-check-label" for="chest5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="heart_pain">심계</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="heart_pain" id="heart_pain1" value="1" required>
+                        <label class="form-check-label" for="heart_pain1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="heart_pain" id="heart_pain2" value="2" required>
+                        <label class="form-check-label" for="heart_pain2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="heart_pain" id="heart_pain3" value="3" required>
+                        <label class="form-check-label" for="heart_pain3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="heart_pain" id="heart_pain4" value="4" required>
+                        <label class="form-check-label" for="heart_pain4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="heart_pain" id="heart_pain5" value="5" required>
+                        <label class="form-check-label" for="heart_pain5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="anxious">상열감</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="anxious" id="anxious1" value="1" required>
+                        <label class="form-check-label" for="anxious1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="anxious" id="anxious2" value="2" required>
+                        <label class="form-check-label" for="anxious2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="anxious" id="anxious3" value="3" required>
+                        <label class="form-check-label" for="anxious3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="anxious" id="anxious4" value="4" required>
+                        <label class="form-check-label" for="anxious4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="anxious" id="anxious5" value="5" required>
+                        <label class="form-check-label" for="anxious5">5</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="fatigue">만성피로</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fatigue" id="fatigue1" value="1" required>
+                        <label class="form-check-label" for="fatigue1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fatigue" id="fatigue2" value="2" required>
+                        <label class="form-check-label" for="fatigue2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fatigue" id="fatigue3" value="3" required>
+                        <label class="form-check-label" for="fatigue3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fatigue" id="fatigue4" value="4" required>
+                        <label class="form-check-label" for="fatigue4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fatigue" id="fatigue5" value="5" required>
+                        <label class="form-check-label" for="fatigue5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="menstruation_pain">생리통</label>
+                <div class="col-sm-3 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 심함  ~ (5) 전혀 없음</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_pain" id="menstruation_pain1" value="1" required>
+                        <label class="form-check-label" for="menstruation_pain1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_pain" id="menstruation_pain2" value="2" required>
+                        <label class="form-check-label" for="menstruation_pain2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_pain" id="menstruation_pain3" value="3" required>
+                        <label class="form-check-label" for="menstruation_pain3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_pain" id="menstruation_pain4" value="4" required>
+                        <label class="form-check-label" for="menstruation_pain4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_pain" id="menstruation_pain5" value="5" required>
+                        <label class="form-check-label" for="menstruation_pain5">5</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_pain" id="menstruation_pain6" value="0" required>
+                        <label class="form-check-label" for="menstruation_pain6" style="font-size: .85em;">해당 없음</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="menstruation_period">생리주기</label>
+                <div class="col-sm-4 align-self-center">
+                    <p style="font-size: .9em; text-align: left; clear: both;">(1) 매우 불규칙적  ~ (3) 규칙적</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_period" id="menstruation_period1" value="1" required>
+                        <label class="form-check-label" for="menstruation_period1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_period" id="menstruation_period2" value="2" required>
+                        <label class="form-check-label" for="menstruation_period2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_period" id="menstruation_period3" value="3" required>
+                        <label class="form-check-label" for="menstruation_period3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="menstruation_period" id="menstruation_period6" value="0" required>
+                        <label class="form-check-label" for="menstruation_period6" style="font-size: .85em;">해당 없음</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="땀 많이 나는 부위">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* 땀이 많이 나는 부위를 모두 체크해주세요.</p>
+            <div class="row justify-content-center">
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="sweat_body" id="sweat_body1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="sweat_body" id="sweat_body2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="sweat_body2">전신</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="sweat_face" id="sweat_face1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="sweat_face" id="sweat_face2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="sweat_face2">머리/얼굴</label>
+                    </div>
+                </div>     
+
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="sweat_chest" id="sweat_chest1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="sweat_chest" id="sweat_chest2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="sweat_chest2">겨드랑이/가슴</label>
+                    </div>
+                </div>     
+
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="sweat_groin" id="sweat_groin1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="sweat_groin" id="sweat_groin2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="sweat_groin2">사타구니</label>
+                    </div>
+                </div>  
+                
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="sweat_hand" id="sweat_hand1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="sweat_hand" id="sweat_hand2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="sweat_hand2">손발</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="소화력">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* 해당하는 소화 증상에 모두 체크해주세요.</p>
+            <div class="row mb-4">
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="digestion_stomach" id="digestion_stomach1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="digestion_stomach" id="digestion_stomach2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="digestion_stomach2">식체</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="digestion_gas" id="digestion_gas1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="digestion_gas" id="digestion_gas2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="digestion_gas2">가스 / 헛배</label>
+                    </div>
+                </div>     
+
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="digestion_full" id="digestion_full1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="digestion_full" id="digestion_full2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="digestion_full2">속 더부룩함</label>
+                    </div>
+                </div>     
+
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="digestion_burp" id="digestion_burp1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="digestion_burp" id="digestion_burp2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="digestion_burp2">트림</label>
+                    </div>
+                </div>  
+                
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="digestion_acid_reflux" id="digestion_acid_reflux1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="digestion_acid_reflux" id="digestion_acid_reflux2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="digestion_acid_reflux2">신물</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="digestion_heaviness" id="digestion_heaviness1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="digestion_heaviness" id="digestion_heaviness2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="digestion_heaviness2">명치 답답함</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="digestion_sickness" id="digestion_sickness1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="digestion_sickness" id="digestion_sickness2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="digestion_sickness2">매스꺼움</label>
+                    </div>
+                </div>     
+
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="digestion_sour_stomach" id="digestion_sour_stomach1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="digestion_sour_stomach" id="digestion_sour_stomach2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="digestion_sour_stomach2">속 쓰림</label>
+                    </div>
+                </div>     
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="주소증">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* 자유롭게 입력해주세요.</p>
+            <div class="input-group col-sm-12" id="lineinput">
+                <textarea class="form-control p-3" name="chief_complain" placeholder="입력 영역" style="font-size: .9em; height:8em"></textarea>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="복용 약물">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+            
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* '해당없음'버튼 체크해제 후 선택</p> 
+            <div class="row mb-3">
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="medication" id="medication1" value="해당 없음" checked>
+                        <label class="form-check-label" for="medication1">해당 없음</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="medication" id="medication2" value="당뇨" disabled>
+                        <label class="form-check-label" for="medication2">당뇨</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="medication" id="medication3" value="고혈압" disabled>
+                        <label class="form-check-label" for="medication3">고혈압</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="medication" id="medication4" value="고지혈증" disabled>
+                        <label class="form-check-label" for="medication4">고지혈증</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 align-self-center">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="medication" id="medication5" onclick="etc_btn(this.name, this.id)" value="기타" disabled>
+                        <label class="form-check-label" for="medication5">기타</label>
+                    </div>
+                </div>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" type="text" name="medication_etc" placeholder="기타 입력" id="medication_etc" disabled/>
+                </div>
+            </div>   
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="과거력">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* '해당없음'버튼 체크해제 후 선택</p> 
+            <div class="row mb-3">
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx1" value="해당 없음" checked>
+                        <label class="form-check-label" for="pmhx1">해당 없음</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx2" value="당뇨" disabled>
+                        <label class="form-check-label" for="pmhx2">당뇨</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx3" value="고혈압" disabled>
+                        <label class="form-check-label" for="pmhx3">고혈압</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx4" value="심혈관 질환" disabled>
+                        <label class="form-check-label" for="pmhx4">심혈관 질환</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx5" value="뇌혈관 질환" disabled>
+                        <label class="form-check-label" for="pmhx5">뇌혈관 질환</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx6" value="위암" disabled>
+                        <label class="form-check-label" for="pmhx6">소화기 암</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx7" value="암" disabled>
+                        <label class="form-check-label" for="pmhx7">기타 암</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx8" value="자가 면역 질환" disabled>
+                        <label class="form-check-label" for="pmhx8">자가 면역 질환</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx9" value="치매" disabled>
+                        <label class="form-check-label" for="pmhx9">치매</label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx10" value="피부질환" disabled>
+                        <label class="form-check-label" for="pmhx10">피부 질환</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2 align-self-center">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx11" value="기타" onclick="etc_btn(this.name,this.id)" disabled>
+                        <label class="form-check-label" for="pmhx11">기타</label>
+                    </div>
+                </div>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" type="text" name="pmhx_etc" placeholder="기타 입력" id="pmhx_etc"  disabled/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>      
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="복용 건강식품">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+            
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* 복용 중인 건강식품이 있다면 자유롭게 입력해 주세요.</p>
+
+            <input type="number" name="health_food" id="health_food" value="해당 없음" hidden>
+            <div class="input-group col-sm-12" id="lineinput">
+                <textarea class="form-control p-3" name="health_food_etc" placeholder="입력 영역" style="font-size: .9em; height:8em"></textarea>
+            </div>
+
+        </div>
+    </div>
+</div>

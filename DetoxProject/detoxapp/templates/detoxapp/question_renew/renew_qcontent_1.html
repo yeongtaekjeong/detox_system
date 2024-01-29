@@ -1,0 +1,622 @@
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="기본정보">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+      
+            <div class="mb-4 row">
+                <label for="html5-text-input" class="col-sm-2 col-form-label" id="user_gender">성별</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="user_gender" id="user_gender1" value="0" required>
+                        <label class="form-check-label" for="user_gender1">남자</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="user_gender" id="user_gender2" value="1" required>
+                        <label class="form-check-label" for="user_gender2">여자</label>
+                    </div>
+                </div>
+
+                <label for="html5-text-input" class="col-sm-2 col-form-label" id="user_birth">나이</label>
+                <div class="col-sm-4">
+                    <select class="form-select" name="user_birth" aria-label="Default select example" required>
+                        <option value="">나이를 선택하세요.</option>
+                        {% for i in age_option %}
+                        <option value="{{ i }}">{{i}}세</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label for="height" class="col-sm-2 col-form-label" id="height">키(cm)</label>
+                <div class="col-sm-4">
+                    <input class="form-control" min="0" max="399" placeholder="숫자만 입력" type="number" name="height" id="height" required/>
+                </div>
+
+                <label for="weight" class="col-sm-2 col-form-label" id="weight">현재 체중(kg)</label>
+                <div class="col-sm-4">
+                    <input class="form-control" min="0"  max="399" placeholder="숫자만 입력" type="number" name="weight" id="weight" required/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="체중정보">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <div class="mb-4 row">
+                <label for="weight_20age" class="col-sm-3 col-form-label" id="weight_20age">20대 초·중반 체중(kg)</label>
+                <div class="col-sm-3">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="weight_20age" id="weight_20age" required/>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label for="weight_high" class="col-sm-3 col-form-label" id="weight_high">20대 이후 최고 체중(kg)</label>
+                <div class="col-sm-3">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="weight_high" id="weight_high" required/>
+                </div>
+
+                <label for="reason_high" class="col-sm-2 col-form-label" id="reason_high">최고 체중 사유</label>
+                <div class="col-sm-4">
+                    <select class="form-select" name="reason_high" id="reason_high" aria-label="Default select example" required>
+                        <option value="">사유를 선택하세요.</option>
+                        <option value="다이어트">다이어트</option>
+                        <option value="과식">과식</option>
+                        <option value="과로">과로</option>
+                        <option value="질병">질병</option>
+                        <option value="스트레스">스트레스</option>
+                        <option value="기타">기타 or 이유모름</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="weight_low" class="col-sm-3 col-form-label" id="weight_low">20대 이후 최저 체중(kg)</label>
+                <div class="col-sm-3">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="weight_low" id="weight_low" required/>
+                </div>
+
+                <label for="reason_low" class="col-sm-2 col-form-label" id="reason_low">최저 체중 사유</label>
+                <div class="col-sm-4">
+                    <select class="form-select" name="reason_low" id="reason_low" aria-label="Default select example" required>
+                        <option value="">사유를 선택하세요.</option>
+                        <option value="다이어트">다이어트</option>
+                        <option value="과식">과식</option>
+                        <option value="과로">과로</option>
+                        <option value="질병">질병</option>
+                        <option value="스트레스">스트레스</option>
+                        <option value="기타">기타 or 이유모름</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="대변">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="poo_count">대변 횟수</label>
+                <div class="col-sm-4">
+                    <select class="form-select" name="poo_count" aria-label="Default select example" required>
+                        <option value="">횟수를 선택하세요.</option>
+                        <option value="0.75">1일에 1번</option>
+                        <option value="0.5">1일에 2번 이상</option>
+                        <option value="0.33">2일에 1번</option>
+                        <option value="0.25">3일에 1번</option>
+                        <option value="0.2">4일 이상에 1번</option>
+                    </select>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="poo_smell">대변 냄새</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_smell" id="poo_smell1" value="0" required>
+                        <label class="form-check-label" for="poo_smell1">보통</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_smell" id="poo_smell2" value="1" required> 
+                        <label class="form-check-label" for="poo_smell2">심함</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 row">
+                <label class="col-sm-2 col-form-label" id="poo_feel">후중감</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_feel" id="poo_feel1" value="0" required>
+                        <label class="form-check-label" for="poo_feel1">없음</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_feel" id="poo_feel2" value="1" required>
+                        <label class="form-check-label" for="poo_feel2">약함</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_feel" id="poo_feel3" value="2" required>
+                        <label class="form-check-label" for="poo_feel3">강함</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="poo_color">대변색</label>
+                <div class="col-sm-4 align-self-center">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_color" id="poo_color1" value="1" required>
+                        <label class="form-check-label" for="poo_color1">황금색</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_color" id="poo_color2" value="2" required>
+                        <label class="form-check-label" for="poo_color2">황갈색</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_color" id="poo_color3" value="3" required>
+                        <label class="form-check-label" for="poo_color3">검은색</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_color" id="poo_color4" value="4" required>
+                        <label class="form-check-label" for="poo_color4">기타</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 col-form-label" id="poo_shape">대변 형태·모양
+                <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <span style="text-decoration: underline; font-size: .8em; color: green;">이미지 보기</span></a>
+                </label>
+    
+                <div class="col-sm-8 align-self-center">
+                    <p style="font-size: .8em; text-align: left; clear: both;">* 이미지를 확인하고 평소대로 먹을 경우의 대변 모양을 선택하세요.</p>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_shape" id="poo_shape1" value="1" required>
+                        <label class="form-check-label" for="poo_shape1">1번</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_shape" id="poo_shape2" value="2" required>
+                        <label class="form-check-label" for="poo_shape2">2번</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_shape" id="poo_shape3" value="3" required>
+                        <label class="form-check-label" for="poo_shape3">3번</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_shape" id="poo_shape4" value="4" required>
+                        <label class="form-check-label" for="poo_shape4">4번</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_shape" id="poo_shape5" value="5" required>
+                        <label class="form-check-label" for="poo_shape5">5번</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_shape" id="poo_shape6" value="6" required>
+                        <label class="form-check-label" for="poo_shape6">6번</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="poo_shape" id="poo_shape7" value="7" required>
+                        <label class="form-check-label" for="poo_shape7">7번</label>
+                    </div>
+                </div>
+            </div>
+            <!-- 설사경향모양 히든 -->
+            <div class="row" hidden>
+                <div class="col-sm-4">
+                    <input class="form-control" value="0" type="number" name="diarrhea_shape" id="diarrhea_shape" required/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="소변">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <div class="row mb-4">
+                <label for="pee_count" class="col-sm-2 col-form-label" id="pee_count">일 소변 횟수(회/일)</label>
+                <div class="col-sm-4">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="pee_count" id="pee_count" required/>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="pee_night_count">일 야뇨 횟수(회/일)</label>
+                <div class="col-sm-4">
+                    <select class="form-select" name="pee_night_count" aria-label="Default select example" required>
+                        <option value="">횟수를 선택하세요.</option>
+                        <option value="0.75">0~1회</option>
+                        <option value="0.5">2회</option>
+                        <option value="0.33">3회</option>
+                        <option value="0.25">4회</option>
+                        <option value="0.2">5회 이상</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="식습관">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <div class="row mb-5">
+                <label for="water_amount" class="col-sm-2 col-form-label" id="water_amount">일 수분 섭취량<br>(리터/일)</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="water_amount" id="water_amount" required/>
+                </div>
+            </div>
+
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* 본인에게 해당하는 상태 및 식습관을 체크 해주세요.</p>
+            <div class="row mb-2">
+                <div class="col-sm-3 align-self-center">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="mouth_thirsty" id="mouth_thirsty1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="mouth_thirsty" id="mouth_thirsty2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="mouth_thirsty2">구갈(갈증)</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 align-self-center">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="mouth_dry" id="mouth_dry1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="mouth_dry" id="mouth_dry2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="mouth_dry2">구건(입마름)</label>
+                    </div>
+                </div>
+
+                <label for="mouth_chew" class="col-sm-2 col-form-label" id="mouth_chew">저작 횟수 <br> (음식 씹는 횟수)</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="mouth_chew" id="mouth_chew" required/>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_night" id="food_night1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_night" id="food_night2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_night2" id="">야식</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="foot_excess" id="foot_excess1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="foot_excess" id="foot_excess2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="foot_excess2" id="">폭식</label>
+                    </div>
+                </div>     
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_unbalance" id="food_unbalance1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_unbalance" id="food_unbalance2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_unbalance2" id="">불규칙 식사</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="소화불량">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <p style="font-size: .85em; text-align: left; clear: both;">* 20대 대상입니다. (20세 이하 해당 없음.)</p>
+            <div class="row">
+                <label class="col-sm-2 col-form-label" id="indigestion_before"> 20대 이전 소화불량</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="indigestion_before" id="indigestion_before1" value="0" checked>
+                        <label class="form-check-label" for="indigestion_before1">NO</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="indigestion_before" id="indigestion_before2" value="1" required>
+                        <label class="form-check-label" for="indigestion_before2">YES</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="indegestion_after"> 20대 이후 소화불량</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="indegestion_after" id="indegestion_after1" value="0" checked>
+                        <label class="form-check-label" for="indegestion_after1">NO</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="indegestion_after" id="indegestion_after2" value="1" required>
+                        <label class="form-check-label" for="indegestion_after2">YES</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="즐겨먹는 음식">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+            
+            <p style="font-size: .9em; text-align: left; clear: both; font-weight: bold;">* 즐겨먹는 음식을 모두 체크해주세요.</p>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_beef" id="food_beef1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_beef" id="food_beef2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_beef2">육류</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_processed" id="food_processed1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_processed" id="food_processed2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_processed2">가공 식품</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_instant" id="food_instant1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_instant" id="food_instant2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_instant2">인스턴트 식품</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_sweet" id="food_sweet1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_sweet" id="food_sweet2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_sweet2">단 음식</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_spicy" id="food_spicy1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_spicy" id="food_spicy2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_spicy2">맵고 짠 음식</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_flour" id="food_flour1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_flour" id="food_flour2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_flour2">밀가루 음식</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="food_old" id="food_old1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="food_old" id="food_old2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="food_old2">기름진 음식</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="fruit" id="fruit1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="fruit" id="fruit2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="fruit2">과일</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" name="vegetable" id="vegetable1" value="0" checked hidden>
+                        <input class="form-check-input" type="checkbox" name="vegetable" id="vegetable2" onclick="deselect(this.name)" value="1">
+                        <label class="form-check-label" for="vegetable2">채소</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="외식 / 기호식품">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <div class="row mb-4">
+                <label class="col-sm-2 col-form-label" id="eat_out">주간 외식 횟수</label>
+                <div class="col-sm-4">
+                    <select class="form-select" name="eat_out" aria-label="Default select example" required>
+                        <option value="">횟수를 선택해주세요.</option>
+                        <option value="0">0회</option>
+                        <option value="1">1회</option>
+                        <option value="2">2회</option>
+                        <option value="3">3회</option>
+                        <option value="4">4회</option>
+                        <option value="5">5회</option>
+                        <option value="6">6회</option>
+                        <option value="7">7회 이상</option>
+                    </select>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="drinking">음주(회/주)</label>
+                <div class="col-sm-4">
+                    <select class="form-select" name="drinking" aria-label="Default select example" required>
+                        <option value="">횟수를 선택해주세요.</option>
+                        <option value="0">0회</option>
+                        <option value="1">1회</option>
+                        <option value="2">2회</option>
+                        <option value="3">3회</option>
+                        <option value="4">4회</option>
+                        <option value="5">5회</option>
+                        <option value="6">6회</option>
+                        <option value="7">7회</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 col-form-label" id="smoking">흡연(개비/일) <br>(1갑=20개비)</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="smoking" id="smoking" required/>
+                </div>
+
+                <label class="col-sm-2 col-form-label" id="coffee">커피<br>(잔/일)</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="coffee" id="coffee" required/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="운동 / 햇볕 쬐기">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <div class="row mb-4">
+                <label class="col-sm-2 col-form-label" id="walk_time">걷기 운동 시간 <br> (분/일)</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="walk_time" id="walk_time" required/>
+                </div>
+
+                <label class="col-sm-2 col-form-label align-self-center" id="walk_count">주간 걷기 운동 횟수</label>
+                <div class="col-sm-4 align-self-center">
+                    <select class="form-select" name="walk_count" aria-label="Default select example" required>
+                        <option value="">횟수를 선택해주세요.</option>
+                        <option value="0">0회</option>
+                        <option value="1">1회</option>
+                        <option value="2">2회</option>
+                        <option value="3">3회</option>
+                        <option value="4">4회</option>
+                        <option value="5">5회</option>
+                        <option value="6">6회</option>
+                        <option value="7">7회</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <label class="col-sm-2 col-form-label align-self-center">기타 운동</label>
+                <div class="col-sm-4 align-self-center">
+                    <p class="mb-0" style="font-size: .8em; text-align: left; clear: both;">* 필수 입력 항목이 아닙니다.</p>
+                    <input class="form-control" placeholder="운동을 입력해주세요." type="text" name="etc_exercise" id="etc_exercise"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 col-form-label align-self-center" id="sunshine_count">주간 햇볕 쬐는 횟수(30분 이상)</label>
+                <div class="col-sm-4 align-self-center">
+                    <select class="form-select" name="sunshine_count" aria-label="Default select example" required>
+                        <option value="">횟수를 선택해주세요.</option>
+                        <option value="0">0회</option>
+                        <option value="1">1회</option>
+                        <option value="2">2회</option>
+                        <option value="3">3회</option>
+                        <option value="4">4회</option>
+                        <option value="5">5회</option>
+                        <option value="6">6회</option>
+                        <option value="7">7회 이상</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="수면">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+
+            <div class="row mb-4">
+                <label class="col-sm-2 col-form-label align-self-center" id="sleep_time">취침 시간</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" max="23" placeholder="숫자만 입력(0시~23시)" type="number" name="sleep_time" id="sleep_time" required/>
+                </div>
+
+                <label class="col-sm-2 col-form-label align-self-center" id="wakeup_time">기상 시간</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" max="23" placeholder="숫자만 입력(0시~23시)" type="number" name="wakeup_time" id="wakeup_time" required/>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <label class="col-sm-2 col-form-label align-self-center" id="breaksleep_count">자다 깨는 횟수<br>(회/일)</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="breaksleep_count" id="breaksleep_count" required/>
+                </div>
+
+                <label class="col-sm-2 col-form-label align-self-center" id="sleepin_time">입면 시간(분)<br>(잠 드는데 <br> 걸리는 시간)</label>
+                <div class="col-sm-4 align-self-center">
+                    <input class="form-control" min="0" placeholder="숫자만 입력" type="number" name="sleepin_time" id="sleepin_time" required/>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 col-form-label align-self-center" id="wakeup_refresh">기상 시 개운함 정도</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="wakeup_refresh" id="wakeup_refresh1" value="0" required>
+                        <label class="form-check-label" for="wakeup_refresh1">나쁨</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="wakeup_refresh" id="wakeup_refresh2" value="1" required>
+                        <label class="form-check-label" for="wakeup_refresh2">보통</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="wakeup_refresh" id="wakeup_refresh3" value="1" required>
+                        <label class="form-check-label" for="wakeup_refresh3">좋음</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="doc-example p-3">
+    <div class="tab-content doc-example-content" id="tab-tabContent" data-label="호흡">
+        <div class="tab-pane fade show active" id="html5-inputs-preview" role="tabpanel" aria-labelledby="html5-inputs-preview-tab">
+            <div class="row">
+
+                <label class="col-sm-2 col-form-label align-self-center" id="breath_chest">호흡 방식</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="breath_chest" id="breath_chest1" value="0" required>
+                        <label class="form-check-label" for="breath_chest1">복식호흡</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="breath_chest" id="breath_chest2" value="1" required>
+                        <label class="form-check-label" for="breath_chest2">흉식호흡</label>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label align-self-center" id="breath_sort">호흡 곤란(숨참) 유무</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="breath_sort" id="breath_sort1" value="0" required>
+                        <label class="form-check-label" for="breath_sort1">NO</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="breath_sort" id="breath_sort2" value="1" required>
+                        <label class="form-check-label" for="breath_sort2">YES</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

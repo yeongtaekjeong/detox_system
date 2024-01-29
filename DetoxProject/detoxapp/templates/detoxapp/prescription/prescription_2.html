@@ -1,0 +1,453 @@
+<div class="result_graph col-sm-12">
+  <div class="card col-sm-12 scroll result_2" id='result_data' style="float: left; overflow: scroll; padding: 10px; font-size: .8em;">
+    <h6 class="fw-bolder mb-2" id="hidden_title" hidden>■ 문진 답변 내용</h6>
+    <table class="tg">
+        <tbody>
+          <p style="text-align: end;">
+            해당없음<span>□ &nbsp;</span>
+            해당<span class="text-primary">■</span>
+          </p>
+          <tr>
+            <td class="tg bg-light" rowspan="2"><h6 class="p-1 mb-1 fw-bolder">대변</h6></td>
+            <td class="tg text-dark" rowspan="2" id="data4_1">
+              {% if second_tab.poo_count == 0.75 %}
+                1일에&nbsp; 1번
+              {% elif second_tab.poo_count == 0.5 %}
+                1일에&nbsp; 2번&nbsp; 이상
+              {% elif second_tab.poo_count == 0.33 %}
+                2일에&nbsp; 1번
+              {% elif second_tab.poo_count == 0.25 %}
+                3일에&nbsp; 1번
+              {% elif second_tab.poo_count == 0.2 %}
+                4일&nbsp; 이상에&nbsp; 1번
+              {% endif %}
+            </td>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">냄새</h6></td>
+            <td class="tg text-dark" id="data4_2">
+              {% if second_tab.poo_smell == 0 %}
+                <span class="text-primary">■</span>보통 <br> □심함
+              {% else %}
+                □보통 <br> <span class="text-primary">■</span>심함
+              {% endif %}
+            </td>
+            <td class="tg bg-light" rowspan="2"><h6 class="p-1 mb-1 fw-bolder">대변색</h6></td>
+            <td class="tg text-dark" rowspan="2" id="data4_4">
+              {% if second_tab.poo_color == 1 %}
+                <span class="text-primary">■</span>황금색
+                <br>□황갈색<br>□검은색<br>□기타
+
+              {% elif second_tab.poo_color == 2 %}
+                □황금색<br>
+                <span class="text-primary">■</span>황갈색
+                <br>□검은색<br>□기타
+
+              {% elif second_tab.poo_color == 3 %}
+                □황금색<br>□황갈색<br>
+                <span class="text-primary">■</span>검은색<br>
+                □기타
+
+              {% else %}
+                □황금색<br>□황갈색<br>□검은색<br>
+                <span class="text-primary">■</span>기타
+              {% endif %}
+            </td>
+            <td class="tg bg-light">
+              <h6 class="p-1 mb-1 fw-bolder">
+                대변모양</h6>
+            </td>
+          </tr>
+          <tr>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">후중감</h6></td>
+            <td class="tg text-dark" id="data4_3">
+              {% if second_tab.poo_feel == 0 %}
+                <span class="text-primary">■</span>없음<br> □약함 <br>□강함
+
+              {% elif second_tab.poo_feel == 1 %}
+                □없음<br><span class="text-primary">■</span>약함<br>□강함
+
+              {% else %}
+                □없음<br> □약함<br><span class="text-primary">■</span>강함
+              {% endif %}
+            </td>
+            <td class="tg text-dark">
+              {% if second_tab.poo_shape == 1 or second_tab.poo_shape == 2 %}
+              <span class="text-primary">■</span>단단함<br> □정상<br> □묽은변<br> □설사
+              {% elif second_tab.poo_shape == 3 or second_tab.poo_shape == 4 %}
+              □단단함<br> <span class="text-primary">■</span>정상<br> □묽은변<br> □설사
+              {% elif second_tab.poo_shape == 5 or second_tab.poo_shape == 6 %}
+              □단단함<br> □정상<br> <span class="text-primary">■</span>묽은변<br> □설사
+              {% elif second_tab.poo_shape == 7 %}
+              □단단함<br> □정상<br> □묽은변<br> <span class="text-primary">■</span>설사
+              {% endif %} 
+            </td>
+          </tr>
+          <tr>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">소변</h6></td>
+            <td class="tg text-dark" id="data4_5">하루  {{ second_tab.pee_count }} 회</td>
+            <td class="tg bg-light" colspan="2"><h6 class="p-1 mb-1 fw-bolder">야간뇨</h6></td>
+            <td class="tg" colspan="3">
+              {% if second_tab.pee_night_count == 0.75 %}
+                매주 1일 이하
+              {% elif second_tab.pee_night_count == 0.5 %}
+                매주 2일
+              {% elif second_tab.pee_night_count == 0.33 %}
+                매주 3일
+              {% elif second_tab.pee_night_count == 0.25 %}
+                매주 4일
+              {% elif second_tab.pee_night_count == 0.2 %}
+                매주 5일 이상
+              {% endif %}
+
+            </td>
+          </tr>
+          <tr>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">수분섭취</h6></td>
+            <td class="tg text-dark" id="data4_7">하루  {{ second_tab.water_amount }}  L</td>
+            <td class="tg text-dark" colspan="5" style="text-align: left;">
+              {% if second_tab.mouth_thirsty %}
+                &nbsp; <span class="text-primary">■</span> 평소 갈증이 있음(구갈) </br>
+              {% endif %}
+              {% if second_tab.mouth_dry == 1 %}
+                &nbsp; <span class="text-primary">■</span> 평소 입이 마름(구건) </br>
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">식습관</h6></td>
+            <td class="tg text-dark" colspan="2" id="data4_8"> {{second_tab.mouth_chew}} 번 씹어 먹는다.</td>
+            <td class="tg text-dark" colspan="2" id="data4_9">
+              {% if second_tab.food_night == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              야식
+            </td>
+            <td class="tg text-dark" id="data4_10">
+              {% if second_tab.foot_excess == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              폭식
+            </td>
+            <td class="tg text-dark" id="data4_11">
+              {% if second_tab.food_unbalance == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              불규칙적인 식사
+            </td>
+          </tr>
+          <tr>
+            <td class="tg bg-light" rowspan="2"><h6 class="p-1 mb-1 fw-bolder">자주먹는음식</h6></td>
+            <td class="tg text-dark" id="data4_12">
+              {% if second_tab.food_beef == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              육식</td>
+
+            <td class="tg text-dark" id="data4_13">
+              {% if second_tab.food_processed == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              가공식품</td>
+
+            <td class="tg text-dark" colspan="2" id="data4_14">
+              {% if second_tab.food_instant == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              인스턴트식품</td>
+
+            <td class="tg text-dark" id="data4_15">
+              {% if second_tab.food_sweet == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              단음식</td>
+
+            <td class="tg text-dark" id="data4_16">
+              {% if second_tab.food_spicy == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              맵고 짠 음식</td>
+          </tr>
+          <tr>
+            <td class="tg text-dark" id="data4_17">
+              {% if second_tab.food_flour == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              밀가루음식</td>
+
+            <td class="tg text-dark" id="data4_18">
+              {% if second_tab.food_old == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              기름진 음식</td>
+
+            <td class="tg text-dark" colspan="2" id="data4_19">
+              {% if second_tab.fruit == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              과일</td>
+
+            <td class="tg text-dark" id="data4_20">
+              {% if second_tab.vegetable == 0 %}
+              <span>□</span>
+              {% else %}
+              <span class="text-primary">■</span>
+              {% endif %}
+              채소</td>
+
+            <td class="tg text-dark" id="data4_21">외식 주 {{ second_tab.eat_out }} 끼니</td>
+          </tr>
+          <tr>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">음주</h6></td>
+            <td class="tg text-dark" colspan="2" id="data4_22">
+                주  {{ second_tab.drinking }}  일
+            </td>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">흡연</h6></td>
+            <td class="tg text-dark" id="data4_23">
+                흡연 : {{ second_tab.smoking }} 개비/일
+            </td>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">커피</h6></td>
+            <td class="tg text-dark" id="data4_24">
+                커피 : {{ second_tab.coffee }}  잔/일
+            </td>
+          </tr>
+          <tr>
+            <td class="tg bg-light" rowspan="2"><h6 class="p-1 mb-1 fw-bolder">운동</h6></td>
+            <td class="tg bg-light fw-bolder" colspan="2">걷기운동</td>
+            <td class="tg text-dark" colspan="2" id="data4_25">시간 :   {{ second_tab.walk_time }}  분/회</td>
+            <td class="tg text-dark" id="data4_26">주   {{ second_tab.walk_count }}   회</td>
+            <td class="tg text-dark" id="data4_27"> {{ second_tab.etc_exercise }}    </td>
+          </tr>
+          <tr>
+            <td class="tg text-dark" colspan="6" id="data4_28">하루 30분이상 햇빛을 쬐는 날 : 주  {{ second_tab.sunshine_count }}  회</td>
+          </tr>
+          <tr>
+            <td class="tg bg-light" rowspan="2"><h6 class="p-1 mb-1 fw-bolder">수면</h6></td>
+            <td class="tg text-dark" colspan="2" id="data4_29">잠드는 시간  :  {{ second_tab.sleep_time }}    시</td>
+            <td class="tg text-dark" colspan="2" id="data4_30">일어나는 시간  :  {{ second_tab.wakeup_time }}   시</td>
+            <td class="tg text-dark" colspan="2" id="data4_31">자다 깨는 횟수 :  {{ second_tab.breaksleep_count }}   회</td>
+          </tr>
+          <tr>
+            <td class="tg text-dark" colspan="3" id="data4_32">누워서 잠드는데 걸리는 시간 : {{ second_tab.sleepin_time }}   분/시간</td>
+            <td class="tg text-dark" colspan="3" id="data4_33">기상 후 개운 한 정도:
+              {% if second_tab.wakeup_refresh == 0 %}
+              <span class="p-1" style="border: .5px solid blue; border-radius: 50%;">좋음</span>  보통  나쁨
+              {% elif second_tab.wakeup_refresh == 1 %}
+                좋음  <span class="p-1" style="border: .5px solid blue; border-radius: 50%;">보통</span>  나쁨
+              {% else %}
+                좋음  보통  <span class="p-1" style="border: .5px solid blue; border-radius: 50%;">나쁨</span>
+              {% endif %}
+               </td>
+          </tr>
+          <tr>
+            <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">호흡</h6></td>
+            <td class="tg text-dark" colspan="3" id="data4_34">
+              {% if second_tab.breath_chest == 0 %}
+                <span class="text-primary">■</span>복식호흡  &nbsp; □흉식호흡
+              {% else %}
+                □복식호흡  &nbsp; <span class="text-primary">■</span>흉식호흡
+              {% endif %}
+              </td>
+
+            <td class="tg" colspan="3" id="data4_35">호흡 곤란(숨참) 유무 :
+              {% if second_tab.breath_sort == 0 %}
+              <span class="p-1" style="border: .5px solid blue; border-radius: 50%;">유</span> 무
+              {% else %}
+                유<span class="p-1" style="border: .5px solid blue; border-radius: 50%;">무</span> 
+              {% endif %}
+              </td>
+          </tr>
+        </tbody>
+    </table>
+    <br>
+    <table class="tg text-dark">
+      <h6 class="fw-bolder p-1" style="page-break-before:always;">■ 평소 건강 상태 답변 내용</h6>
+      <tbody>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">식욕</h6></td>
+          <td class="tg"><span class="{% if second_tab.appetite == 1 %}circle{% endif %}">전혀 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.appetite == 2 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.appetite == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.appetite == 4 %}circle{% endif %}">왕성</span></td>
+          <td class="tg"><span class="{% if second_tab.appetite == 5 %}circle{% endif %}">매우 왕성</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">소화</h6></td>
+          <td class="tg"><span class="{% if second_tab.digestion == 1 %}circle{% endif %}">전혀 안됨</span></td>
+          <td class="tg"><span class="{% if second_tab.digestion == 2 %}circle{% endif %}">별로 안됨</span></td>
+          <td class="tg"><span class="{% if second_tab.digestion == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.digestion == 4 %}circle{% endif %}">잘됨</span></td>
+          <td class="tg"><span class="{% if second_tab.digestion == 5 %}circle{% endif %}">매우 잘됨</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">대변</h6></td>
+          <td class="tg"><span class="{% if second_tab.foo == 1 %}circle{% endif %}">매우불편하다</span></td>
+          <td class="tg"><span class="{% if second_tab.foo == 2 %}circle{% endif %}">불편하다</span></td>
+          <td class="tg"><span class="{% if second_tab.foo == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.foo == 4 %}circle{% endif %}">잘 본다</span></td>
+          <td class="tg"><span class="{% if second_tab.foo == 5 %}circle{% endif %}">매우 잘 본다</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">소변</h6></td>
+          <td class="tg"><span class="{% if second_tab.fee == 1 %}circle{% endif %}">매우불편하다</span></td>
+          <td class="tg"><span class="{% if second_tab.fee == 2 %}circle{% endif %}">불편하다</span></td>
+          <td class="tg"><span class="{% if second_tab.fee == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.fee == 4 %}circle{% endif %}">잘 본다</span></td>
+          <td class="tg"><span class="{% if second_tab.fee == 5 %}circle{% endif %}">매우 잘 본다</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">수면</h6></td>
+          <td class="tg"><span class="{% if second_tab.sleep == 1 %}circle{% endif %}">전혀 못 잠</span></td>
+          <td class="tg"><span class="{% if second_tab.sleep == 2 %}circle{% endif %}">별로 못 잠</span></td>
+          <td class="tg"><span class="{% if second_tab.sleep == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.sleep == 4 %}circle{% endif %}">잘 잠</span></td>
+          <td class="tg"><span class="{% if second_tab.sleep == 5 %}circle{% endif %}">매우 잘 잠</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">현재의 스트레스</h6></td>
+          <td class="tg"><span class="{% if second_tab.stress == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.stress == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.stress == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.stress == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.stress == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">땀</h6></td>
+          <td class="tg"><span class="{% if second_tab.sweat == 1 %}circle{% endif %}">전혀 안 남</span></td>
+          <td class="tg"><span class="{% if second_tab.sweat == 2 %}circle{% endif %}">별로 안 남</span></td>
+          <td class="tg"><span class="{% if second_tab.sweat == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.sweat == 4 %}circle{% endif %}">많이 남</span></td>
+          <td class="tg"><span class="{% if second_tab.sweat == 5 %}circle{% endif %}">매우 많이 남</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">땀이 많이 나는 부위(중복가능)</h6></td>
+          <td class="tg" colspan="5">
+            {% if second_tab.sweat_body == 1 %}<span class="checkstate">■</span>{% else %}□{% endif %}전신 &nbsp;
+            {% if second_tab.sweat_face == 1 %}<span class="checkstate">■</span>{% else %}□{% endif %}머리/얼굴 &nbsp;
+            {% if second_tab.sweat_chest == 1 %}<span class="checkstate">■</span>{% else %}□{% endif %}겨드랑이/가슴 &nbsp;
+            {% if second_tab.sweat_groin == 1 %}<span class="checkstate">■</span>{% else %}□{% endif %}사타구니 &nbsp;
+            {% if second_tab.sweat_hand == 1 %}<span class="checkstate">■</span>{% else %}□{% endif %}손발 
+          </td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">수족냉증</h6></td>
+          <td class="tg"><span class="{% if second_tab.coldhand == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.coldhand == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.coldhand == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.coldhand == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.coldhand == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">손발저림 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.hand_numb == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.hand_numb == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.hand_numb == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.hand_numb == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.hand_numb == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">평상시 두통의 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.headache == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.headache == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.headache == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.headache == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.headache == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">평상시 부종의 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.tumepy == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.tumepy == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.tumepy == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.tumepy == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.tumepy == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">평상시 갈증을 느끼는 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.thrist == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.thrist == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.thrist == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.thrist == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.thrist == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">평상시 뒷목, 어깨 결림 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.shoulder_pain == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.shoulder_pain == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.shoulder_pain == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.shoulder_pain == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.shoulder_pain == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">평상시 가슴 답답함의 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.chest == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.chest == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.chest == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.chest == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.chest == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">평상시 두근거림의 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.heart_pain == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.heart_pain == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.heart_pain == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.heart_pain == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.heart_pain == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">상체로 열이 올라오는 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.anxious == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.anxious == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.anxious == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.anxious == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.anxious == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">만성 피로 정도</h6></td>
+          <td class="tg"><span class="{% if second_tab.fatigue == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.fatigue == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.fatigue == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.fatigue == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.fatigue == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">생리통</h6></td>
+          <td class="tg"><span class="{% if second_tab.menstruation_pain == 1 %}circle{% endif %}">매우 심함</span></td>
+          <td class="tg"><span class="{% if second_tab.menstruation_pain == 2 %}circle{% endif %}">심함</span></td>
+          <td class="tg"><span class="{% if second_tab.menstruation_pain == 3 %}circle{% endif %}">보통</span></td>
+          <td class="tg"><span class="{% if second_tab.menstruation_pain == 4 %}circle{% endif %}">별로 없음</span></td>
+          <td class="tg"><span class="{% if second_tab.menstruation_pain == 5 %}circle{% endif %}">전혀 없음</span></td>
+        </tr>
+        <tr>
+          <td class="tg bg-light"><h6 class="p-1 mb-1 fw-bolder">생리주기</h6></td>
+          <td class="tg"><span class="{% if second_tab.menstruation_pain == 1 %}circle{% endif %}">매우 불규칙</span></td>
+          <td class="tg" style="background-color: gray;"></td>
+          <td class="tg"><span class="{% if second_tab.menstruation_pain == 2 %}circle{% endif %}">불규칙</span></td>
+          <td class="tg" style="background-color: gray;"></td>
+          <td class="tg"><span class="{% if second_tab.menstruation_pain == 3 %}circle{% endif %}">일정</span></td>
+        </tr>
+      </tbody>
+      </table>
+  </div>
+</div>
+
+

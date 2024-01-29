@@ -1,0 +1,68 @@
+{% extends "tongue.html" %}
+
+{% block content_side %}
+{% load static %}
+<script src="{% static 'detoxapp/js/tongue_functions.js' %}"></script>
+<script src="{% static 'detoxapp/js/tongue_detail_functions.js' %}"></script>
+<div style="float:left; margin: 0 0 0 20px; width: 75%; height: 100vh;">
+    <div class="row">
+        <h5 style="font-weight: bold;">■ 설진 상세진단</h5>
+    </div>
+    <p class="jb-division-line"></p>
+
+    <!--메인 DIV-->
+    <div class="row align-items-center">
+        <!-- 이미지 영역-->
+        <div class="card col-sm-6" style="text-align: center;">
+            <div class="mb-3" style="margin-top: 8px; width:100%; height:90%;">
+                <img id="Tongue" height="100%" width="100%" 
+                src= "{% static 'detoxapp/image/noimgicon.png' %}" onclick="changeImage()"/>
+            </div>
+        </div>
+        <p></p>
+
+        <div style="float:left; margin: 0 0 0 0px; width: 75%; height: 100vh;">
+            <div class="row align-items-center">
+                <ul class="nav nav-tabs" id="tab-menu">
+                    <li class="nav-item">
+                        <p class="nav-link active" id="tab_first" aria-current="page" onclick="tabno(1)">설진결과</p>
+                    </li>
+                    <li class="nav-item">
+                        <p class="nav-link" id="tab_second" onclick="tabno(2)">진단예측</p>
+                    </li>
+                    <li class="nav-item">
+                        <p class="nav-link" id="tab_third" onclick="tabno(3)">전문의 소견</p>
+                    </li>
+                </ul>
+                <p></p>
+                <div id="tabcontent_1">
+                    <!--설진결과-->
+                    {% include "detoxapp/tongue/tongue_predict.html" %}
+                </div>
+                <div id="tabcontent_2" style="display:none">
+                    <!--진단 예측결과-->
+                    <div class="card">
+                        <div class="mb-3 text-center" style="padding: 10px;">
+                            <label for="exampleFormControlTextarea1" class="form-label" style="font-size: .9em;">-- AI 예측결과 --</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" style="height: 10rem;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div id="tabcontent_3" style="display:none">
+                    <!--전문의 소견-->
+                    <div class="card">
+                        <div class="mb-3 text-center" style="padding: 10px;">
+                            <label for="exampleFormControlTextarea1" class="form-label" style="font-size: .9em;">-- 전문의 소견 --</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea2" style="height: 10rem;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+</body>
+</html>

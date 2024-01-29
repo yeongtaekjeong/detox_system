@@ -1,0 +1,80 @@
+/* question_input.html CSS */
+.scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+.middle-img {
+  background-image: url('../image/bgi_mini.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+  height: 17em;
+  width: 100%;
+  font-weight: bold;
+}
+
+
+.questionlist .title {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 3px;
+  }
+
+.questionlist .questioniner {
+  margin-bottom: 1.5em;
+  font-size: .85rem;
+}
+
+.questioniner #qtitle {
+  font-weight: bold;
+  font-size: .88rem;
+  margin-bottom: 2px;
+  float: left;
+}
+
+.questioniner #lineinput {
+  width: 40%;
+}
+
+#qtitle span {
+  font-weight: normal;
+  font-size: .85em;
+  color: gray;
+  float: right;
+}
+
+table {
+  width: 100%;
+}
+
+#infotable td {
+  border : 1px solid black;
+}
+
+#qtable {
+  width:100%
+}
+
+#qtable td {
+  border: 0px solid black;
+}
+
+#colnm {
+  background-color: papayawhip;
+  font-weight: bold;
+}
+
+#danwi {
+  float: left;
+  margin-left: 5px;
+  padding-top: 10px;
+}
+
+.form-check {
+  margin-right: 20px;
+}
+
+table #qchk {
+  float: left;
+  margin-left: 20px;
+}
+

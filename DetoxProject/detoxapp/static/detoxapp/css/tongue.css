@@ -1,0 +1,99 @@
+
+/*-----------------------공통-------------------------*/
+
+@media (max-width: 400px) {
+    .navbar-brand span {
+        display: block;
+    }
+
+    .nav #colnav {
+        margin-bottom: 3em;
+        font-size: .3em;
+        position: relative;
+        word-break:break-all;
+        width: 100%;
+    }
+}
+
+
+/*구분선*/
+p.jb-division-line {
+    border-top: 1px solid #e2e2de;
+    margin: 5px 0 20px 0;
+  }
+
+/*main.html CSS*/
+html, body {
+    height: 100%;
+}
+
+/*side nav CSS*/
+.menu{
+    text-decoration: none;
+    color: black;
+}
+
+.menu p {
+    font-weight: bold; 
+    width: 80%;
+}
+
+#colnav {
+    margin-bottom: 1.2em;
+    font-size: .6em;
+    position: relative;
+    word-break:break-all;
+    width: 80%;
+}
+
+#colnav a {
+    padding: 0;   
+}
+
+#collapsenav {
+    width: 20%; 
+    height:100%; 
+    float: left;
+}
+/*-----------------------공통(끝)-------------------------*/
+
+/* tongue_ai.html CSS */
+#formFile, #formFile2 {
+    background-image: url('../image/noimgicon.png');
+    background-position-x: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    text-indent: -10000px;
+    border: 0;
+    align-self: center;
+}
+
+input[type=file]::file-selector-button {
+    display : none;
+}
+
+#resbtn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: .6em;
+    float: left;
+}
+
+#resbtn img{
+    width: 40%;
+    margin: 0 auto;
+}
+
+
+/* tongue_detail.html CSS */
+#detailFile {
+    background-image: url('../image/after.jpg');
+    background-position-x: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    border: 0;
+    margin: 0 auto;
+    align-self: center;
+}

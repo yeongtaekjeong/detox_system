@@ -1,0 +1,239 @@
+{% extends "index_base.html" %}
+
+{% block contents %}
+{% load static %}
+
+<link href="{% static 'detoxapp/css/progress.css' %}" rel="stylesheet" >
+<style>
+#loading div.text {
+    position: absolute;
+    color: #fff;
+    font-weight: 800;
+}
+
+.progress-container {
+    width: 50%;
+}
+
+.progress-container:before {
+    height: 8px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+}
+
+.label-container {
+    color: #fff;
+    width: 58%;
+}
+
+.label-container span {
+    color: #fff;
+    background-color: transparent;
+}
+
+.circle-label {
+    width: 150px;
+}
+
+.circle-label.active {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+    font-weight: bold;
+}
+
+.div-upload:hover {
+    background-color: #EAEAEA;
+    border: rgba(254, 254, 254, 0.7);
+}
+
+.user_info th {
+    background-color: rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+.user_info td {
+    text-align: center;
+}
+</style>
+<section class="py-5">
+    <!-- Page Content-->
+    <div class="container px-5">
+        <div class="bg-light rounded-4 py-5 px-md-5">
+            <h2 class="fw-bolder mb-5"><span class="text-gradient d-inline">설진</span></h2>
+            <div class="row gx-1">
+                <div class="card border-1 rounded-2 mb-4">
+                    <div class="card-body p-2">
+                        <input type="hidden" name="question_sq" value="{{user_info.question_sq}}">
+                        <input type="hidden" id="cur_seq" value="{{tungue_info.orgn_img_num}}">
+                        <table class="table table-bordered table-middle user_info mb-0">
+                            <tbody>
+                                <tr>
+                                <th>이름</th><td>{{user_info.user_name}}</td>
+                                <th>나이</th><td>{{user_info.user_birth}}세</td>
+                                <th>성별</th><td>{% if user_info.user_gender == 0 %}남{% else %}여{% endif %}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card shadow border-0 rounded-4 mb-4">
+                    <div id="loading"
+                       class="row align-items-center justify-content-center rounded-4"
+                       style="position: absolute;
+                              z-index: 9999;
+                              background-color:rgba(0, 0, 0, 0.5);
+                              display: none;
+                              right: 12px;
+                              width: 100%;
+                              height: 100%;">
+                            <div style="top: 40%;"
+                                class="text-center text">
+                                <span>AI 분석중입니다.</span>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col">
+                                    <div class="progress-container div-progress" style="position: absolute; left: 24%;">
+                                        <div class="circle">1</div>
+                                        <div class="circle">2</div>
+                                        <div class="circle">3</div>
+                                        <div class="circle">4</div>
+
+                                        <div class="progressbar" style="width:0%"></div>
+                                    </div>
+                                    <div class="label-container div-label" style="position: absolute; left: 20%; bottom:35%;">
+                                        <span class="circle-label">사진 업로드</span>
+                                        <span class="circle-label">혀 영역 추출</span>
+                                        <span class="circle-label">혀 특징 추출</span>
+                                        <span class="circle-label">진단 결과 생성</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                      </div>
+
+                    <div class="card-body div-predict p-4">
+                        <div class="row gx-5">
+                            <div class="col-4 text-center text-lg-start mb-2 mb-lg-0">
+                                <div class="card target-img">
+                                    <div class="card-header">
+                                    혀 사진
+                                    </div>
+                                    <div class="card-body">
+                                    <img class="img-fluid img-tungue" src=""/>
+                                    </div>
+                                    <div class="card-body">
+                                    <p style="font-size: .8em;">
+                                        -설질 : 혀의 색깔<br>
+                                        -설태 : 혀 위에 도포된 물질(태)<br>
+                                        -설열 : 혀의 갈라짐<br>
+                                        -어반 : 혀 군데군데 생긴 점<br>
+                                        -치흔 : 혀에 남아있는 치아 자국
+                                    </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card">
+                                  <div class="card-header">
+                                    AI 설진 분석 결과
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="table-responsive">
+                                    <table class="table table-hover table-predict">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <th class="text-end text-primary" width="20%" style="text-align: left;">전체 영역</th>
+                                            <td>
+                                            {% for index, values in predict_meta_all.items %}
+                                                <div id="radio_value">
+                                                <strong style="font-size: 1em;">· {{ index }}</strong>&emsp;
+                                                {% for i, v in values.items %}
+                                                <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="radio" name="{{index}}" id="{{index}}_{{i}}" value="{{i}}">
+                                                  <label class="form-check-label" for="{{index}}_{{i}}" style="font-size: .9em;">{{v}}</label>
+                                                </div>
+                                                {% endfor %}
+                                                <br>
+                                                </div>
+                                            {% endfor %}
+                                            </td>
+                                            </tr>
+
+                                            {% for n in predict_meta_area %}
+                                            {% with n|dictsort:0 as nlist %}
+                                            <tr>
+                                            <th class="text-end text-primary" width="20%">{{ nlist.0 | slice:':2' }}</th>
+                                            <td>
+                                            {% endwith %}
+                                            {% for index, values in n.items %}
+                                                <div id="radio_value">
+                                                <strong style="font-size: 1em;">· {{ index | slice:'3:' }}</strong>&emsp;
+                                                {% for i, v in values.items %}
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="{{index}}" id="{{index}}_{{i}}" value="{{i}}">
+                                                    <label class="form-check-label" for="{{index}}_{{i}}" style="font-size: .9em;">{{v}}</label>
+                                                </div>
+                                                {% endfor %}
+                                                <br>
+                                                </div>
+                                            {% endfor %}
+
+                                            {% endfor %}
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                  </div>
+                                </div>
+
+                                <div class="card mt-3">
+                                  <div class="card-header">
+                                    진단 내용
+                                  </div>
+                                  <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text predict-text"></p>
+                                  </div>
+                                </div>
+
+                                <button class="btn btn-success px-4 py-1 w-100 mt-3" onclick="label_tongue()">
+                                    <div class="d-inline-block bi bi-download me-2"></div>
+                                    최종 제출
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body div-upload p-4">
+                        <div class="row text-center gx-5" style="font-size: 40px; color:#D5D5D5; width: 1200px; height: 400px;
+                        display: table-cell; vertical-align: middle;">
+                            <i class="bi bi-upload"></i><br>
+                            <span>사진을 업로드 해주세요</span>
+
+                        </div>
+                    </div>
+                    <div id="uploading"
+                       class="row align-items-center justify-content-center rounded-4"
+                       style="position: absolute;
+                              z-index: 9999;
+                              background-color:rgba(0, 0, 0, 0.1);
+                              display: none;
+                              right: 12px;
+                              width: 100%;
+                      height: 100%;"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'detoxapp/js/tongue_detail.js' %}"></script>
+{% endblock %}

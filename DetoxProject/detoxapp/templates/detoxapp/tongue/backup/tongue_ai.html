@@ -1,0 +1,55 @@
+{% extends "tongue.html" %}
+
+{% block content_side %}
+{% load static %}
+<script src="{% static 'detoxapp/js/tongue_ai_functions.js' %}"></script>
+<script src="{% static 'detoxapp/js/tongue_functions.js' %}"></script>
+
+    <div style="float: left; margin: 0 0 0 20px; width: 75%; height: 100vh;">
+        <div class="row">
+            <h5 style="font-weight: bold;">■ AI 설진</h5>
+        </div>
+        <p class="jb-division-line"></p>
+        
+        <!--메인 DIV-->
+        <div class="row align-items-center">
+            <!--이미지 업로드 영역-->
+            <div class="card col-sm-6" style="text-align: center;">
+                <div class="mb-3" style="margin-top: 8px; width:100%; height:90%;">
+                    <img id="Tongue" height="100%" width="100%" src= "{% static 'detoxapp/image/noimgicon.png' %}" 
+                    onclick="changeImage()" onerror="fileCheck(this.src);"/>
+                    <p id="loading"></p>
+                    <input type="button" value="추출" onclick="Tongue_segment()" style="height:8%; width:48%; font-size:30px"></input>
+                    <input type="button" value="진단" onclick="Tongue_predict()" style="height:8%; width:48%; font-size:30px"></input>
+                </div>
+            </div>
+        </div>
+        
+        <!--AI 진단 결과 영역-->
+        <div style="float:left; margin: 0 0 0 0px; width: 75%; height: 100vh;">
+            <div class="row align-items-center">
+                <ul class="nav nav-tabs" id="tab-menu">
+                    <li class="nav-item">
+                        <p class="nav-link active" id="tab_first" aria-current="page" onclick="tabno(1)">예측결과</p>
+                    </li>
+                    <li class="nav-item">
+                        <p class="nav-link" id="tab_second" onclick="tabno(2)">실제결과</p>
+                    </li>
+                </ul>
+                <p></p>
+                <div id="tabcontent_1">
+                    <!--예측결과-->
+                    {% include "detoxapp/tongue/tongue_predict.html" %}
+                </div>
+                <div id="tabcontent_2">
+                    <!--설진결과-->
+                    {% include "detoxapp/tongue/tongue_real.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

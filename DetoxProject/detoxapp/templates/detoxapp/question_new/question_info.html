@@ -1,0 +1,104 @@
+{% extends "question_new.html" %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container px-5 mb-5">
+        <!-- Contact form-->
+        <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+        <div class="d-flex justify-content-center">
+            <form class="row gx-5 d-flex justify-content-center" action="/question_info/info" method="post" id="inputform">
+                {% csrf_token %}
+                <div class="align-self-center">   
+                    <div id="h2box">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-bolder text-primary">사용자 정보</h1>
+                        </div>
+                    </div>
+
+                    <div class="mb-0">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" placeholder="Leave a comment here" id="nameinput" name="user_name" required></input>
+                            <label for="nameinput" style="color: gray;">이름</label>
+                        </div>
+                        <br>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" placeholder="Leave a comment here" id="phoneinput" name="user_phone" required></input>
+                            <label for="phoneinput" style="color: gray;">전화번호('-'제외)</label>
+                            <!-- <a tabindex="0" role="button" id="popoverbtn" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Popover title" 
+                                data-bs-content="잘못된 형식입니다." style="max-height: 10%;"></a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="emptybox"></div>
+
+                <div class="nextbtn col-12">
+                    <p class="d-flex justify-content-center">
+                        <p style="text-align: center;">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                            <label class="form-check-label mb-0" for="flexCheckDefault">
+                                가명정보 활용에 동의합니다.&nbsp;
+                            </label>   
+                            <a role="button" data-bs-toggle="modal" data-bs-target="#agreemodal" style="text-decoration: underline; font-size: .85em;">내용확인</a>
+                        </p>
+                        <p style="text-align:center">
+                            <a href="/survey_project/"><button type="button" class="btn btn-outline-secondary">돌아가기</button></a>
+                            <button type="submit" class="btn btn-primary">진행하기</button>
+                        </p>
+                    </p>
+                </div>
+            </form>
+        </div>
+        </div>
+
+        <div class="modal fade" id="agreemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    개인정보 수집 및 이용 동의서
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ※ 개인정보의 수집·이용에 관한 사항 <br>
+                        ❏ 가명정보의 수집·이용 목적 <br>
+                        ❍ 귀하의 개인정보는 가명처리되어 통계 및 연구 목적으로 수집·이용됩니다. <br>
+                        ❏ 수집·이용할 개인정보의 항목 <br>
+                        ❍ 수집·이용되는 귀하의 개인정보는 다음과 같습니다. <br>
+                            [필수정보] <br>
+                            - 인적사항(성명, 나이, 휴대전화번호, 성별, 이메일주소) <br>
+                            - 생체정보(키, 몸무게 등의 문진항목)  <br>
+                        ❏ 개인정보의 보유·이용기간 <br>
+                            ❍ 개인정보의 인적사항은 원칙적으로 수집 및 이용목적이 종료되면 파기합니다. <br>
+                            ❍ 개인정보의 생체정보는 개인을 식별할 수 없게 가명처리하여 통계 및 연구에 활용될 수 있습니다. <br>
+                        ❏ 동의를 거부할 권리 및 동의를 거부할 경우 문진 시스템 이용이 불가합니다. <br>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">돌아가기</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    </section>
+</main>
+</body>
+<script>
+
+    $('#phoneinput').focusout(function(){
+        // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        // const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        // const popover = new bootstrap.Popover('.popover-dismiss', {
+        //     trigger: 'focus'})
+
+        var phoneval = $('#phoneinput').val()
+        const regphone = /^(\d{2,3})(\d{3,4})(\d{4})$/;
+        
+        if(!regphone.test(phoneval)){
+            $('#phoneinput').val('')
+            // $('#popoverbtn').trigger('click')
+        }
+    })
+</script>
+
+{% endblock %}

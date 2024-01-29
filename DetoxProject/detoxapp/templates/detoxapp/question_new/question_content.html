@@ -1,0 +1,270 @@
+{% extends "question_new.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+{% load static %}
+<section class="py-5">
+    <div class="container px-5 mb-5">
+        <!-- Contact form-->
+        <div class="bg-light rounded-4 py-5 px-5 px-md-5">
+        <div class="text-center col-sm-12">
+            <div class="row justify-content-center col-sm-12" id="inputform">
+                <div class="align-self-center" id="top-box">
+                    <p style="text-align: right;">
+                        <button id="zoomin" style="border: 0px;"><span class="material-symbols-outlined">
+                            zoom_in
+                        </span></button>
+                        <button id="zoomout" style="border: 0px;"><span class="material-symbols-outlined">
+                            zoom_out
+                            </span></button></p>
+                    <div style="text-align: center;">
+                        <div class="text-center justify-content-center mb-2">
+                            <h1 class="fw-bolder text-primary">문진정보 입력</h1>
+                            <p class="lead fw-normal text-muted mb-0">스크롤을 내려 문항을 모두 입력하고, '다음' 버튼을 선택해주세요</p>
+                        </div>
+                    </div>  
+
+                    <div class="icon-group">
+                        <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-2">
+                            <div class="progress" role="progressbar" aria-label="Info example" style="margin-bottom: 5px;">
+                                <div class="progress-bar bg-primary" id="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="d-flex border-0 justify-content-center" id="surveyinputarea">
+                        <div class="input-place fw-normal text-muted col-sm-12" style="padding:5px 0 5px 0;"> 
+                            <form action="/question_submit/1" method="post" class="form_1" hidden>
+                                {% csrf_token %}
+                                <input hidden="hidden" />
+                                {% include "detoxapp/question_new/new_question_content_1.html" %}
+                                <button type="submit" id="formbtn_1" hidden></button>
+                            </form>
+                            <form action="/question_submit/2" method="post" class="form_2" hidden>
+                                {% csrf_token %}
+                                {% include "detoxapp/question_new/new_question_content_2.html" %}
+                                <button type="submit" id="formbtn_2" hidden></button>
+                            </form>
+                            <form action="/question_submit/3" method="post" class="form_3" hidden>
+                                {% csrf_token %}
+                                {% include "detoxapp/question_new/new_question_content_3.html" %}
+                                <button type="submit" id="formbtn_3" hidden></button>
+                            </form>
+                            <form action="/question_submit/4" method="post" class="form_4" hidden>
+                                {% csrf_token %}
+                                {% include "detoxapp/question_new/new_question_content_4.html" %}
+                                <button type="submit" id="formbtn_4" hidden></button>
+                            </form>
+                            <form action="/question_submit/5" method="post" class="form_5" hidden>
+                                {% csrf_token %}
+                                {% include "detoxapp/question_new/new_question_content_5.html" %}
+                                <button type="submit" id="formbtn_5" hidden></button>
+                            </form>
+                        </div>
+ 
+                    </div>
+                    <p class="d-flex justify-content-center mb-0 p-2">
+                        <button class="btn btn-outline-primary" id="nexti" data-bs-toggle="modal" data-bs-target="#nextmodal">다음</button>
+                    </p>
+            </div>
+            <div id="emptybox"></div>
+            </div>
+
+            <footer class="row justify-content-center">
+                <p id="currentpage" hidden></p>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content col-md-10">
+                        <div class="modal-header">
+                        <h3 class="modal-title fs-5" id="staticBackdropLabel">대변모양 번호</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;">
+                            <img width="70%" src="{% static 'detoxapp/image/dong_shape.png' %}">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!--NEXT Modal -->
+                <div class="modal fade" id="nextmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            이후 수정할 수 없습니다. <br> 다음으로 계속 진행하시겠습니까?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">돌아가기</button>
+                        <button type="button" class="btn btn-primary" onclick="submit_data()">다음 진행하기</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        </div>
+    </div>
+    </section>
+</main>
+</body>
+
+<script>
+
+var process = 20
+
+$(document).ready(function(){
+    startpage = '{{paging}}'
+    
+    active_form = '.form_'+startpage;
+    $(active_form).removeAttr('hidden','')
+
+    endpage = 5
+    
+    $('#progressbar').html(startpage+'/'+endpage)
+    widthper = String(process*startpage) + '%'
+    $('#progressbar').css('width',widthper)
+})
+
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    $("#nexti").trigger('click')
+  };
+}, true);
+
+// 뒤로가기 방지 함수
+window.onpageshow = function(event) {
+    if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+        $(location).attr('href', '/question_info/home');
+    }
+}
+
+// 각 입력칸 색 변경 기능 및 체크박스 기능
+$('input, select').on('change keypress',function(){
+    var focusobject = $(':focus')
+    var tagname = focusobject.prop('tagName')
+    var inputtype = focusobject.attr('type')
+
+    var target = $(':focus').closest('.questioniner');
+    var target_header = target.children('.card-header');
+    var target_box = target.children('.qbox input');
+    target_header.css({'background-color':'#3a6dc4','color':'white'});
+    target_header.children('strong').css('color','white');
+
+    focusobject.focusout(function(){
+        intval = parseInt(focusobject.val())
+        header_color = '#f7f7f7'
+
+        if(isNaN(intval) & inputtype=='number'){
+            target_header.css({'background-color':header_color,'color':'black'});
+            target_header.children('strong').css('color','black');
+        }
+
+        if(!focusobject.prop('checked') & inputtype=='radio'){
+            target_header.css({'background-color':header_color,'color':'black'});
+            target_header.children('strong').css('color','black');
+        }
+        if(isNaN(intval) & inputtype=='select'){
+            target_header.css({'background-color':header_color,'color':'black'});
+            target_header.children('strong').css('color','black');
+        }
+
+        inputname = focusobject.prop('name')
+        box_check = $('input[name='+inputname+']').is(':checked')
+        if(!box_check & inputtype=='checkbox'){
+            target_header.css({'background-color':header_color,'color':'black'});
+            target_header.children('strong').css('color','black');
+        }
+    })
+})
+
+function submit_data() {
+    var page = $('#page').attr('name')
+    var submit_form = '.form_'+'{{paging}}'
+    var submitbtn_form = '#formbtn_'+'{{paging}}'
+
+    $(submitbtn_form).trigger('click')
+}
+
+$('.form_5').submit(function(){
+    var pmhx = $('input[name=pmhx]').is(':checked')
+    var medication = $('input[name=medication]').is(':checked')
+    var health_food = $('input[name=health_food]').is(':checked')
+
+    if (!pmhx) {
+        $('#pmhx1').prop('checked',true)
+    }
+    if (!medication) {
+        $('#medication1').prop('checked',true)
+    }
+    if (!health_food) {
+        $('#health_food1').prop('checked',true)
+    }
+})
+
+
+$('#pmhx1').click(function(){
+    var bringid = ''
+    var check = $('#pmhx1').prop('checked');
+    if (check) {
+        for(i=2;i<=10;i++){
+            bringid = '#pmhx'+i
+            $(bringid).prop('checked',false);
+            $(bringid).attr('disabled','')
+        }
+    }
+    else{
+        $('input[name=pmhx]').removeAttr('disabled')
+    }
+})
+
+$('#medication1').click(function(){
+    var bringid = ''
+    var check = $('#medication1').prop('checked');
+    if (check) {
+        for(i=2;i<=4;i++){
+            bringid = '#medication'+i
+            $(bringid).prop('checked',false);
+            $(bringid).attr('disabled','')
+        }
+    }
+    else{
+        $('input[name=medication]').removeAttr('disabled')
+    }
+})
+
+$('#health_food1').click(function(){
+    var bringid = ''
+    var check = $('#health_food1').prop('checked');
+    if (check) {
+        for(i=2;i<=10;i++){
+            bringid = '#health_food'+i
+            $(bringid).prop('checked',false);
+            $(bringid).attr('disabled','')
+        }
+    }
+    else{
+        $('input[name=health_food]').removeAttr('disabled')
+    }
+})
+
+//확대 축소기능
+var scale = 1
+function zoom() {
+    document.getElementById('surveyinputarea').style.zoom = scale;
+}
+
+$('#zoomin').click(function(){
+    scale *= 1.2;
+    zoom();
+})
+$('#zoomout').click(function(){
+    scale /= 1.2;
+    zoom();
+})
+
+</script>
+
+
+{% endblock %}

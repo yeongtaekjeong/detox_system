@@ -1,0 +1,22 @@
+.main_home {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main_home #img_area {
+    background-image: url('../image/home_bgi_2.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100%;
+    width: 100%;
+    color: white;
+    /* text-align: left; */
+}
+
+#img_area #inner_content {
+    padding-left:20px;
+    top: 10%;
+}
+
+#inner_content #survey_btn:hover {
+    background-color: #f8f8f8;
+}

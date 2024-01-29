@@ -1,0 +1,163 @@
+{% load static %}
+<input hidden id="result_data_real" value="">
+<table id="qtable">
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 50px;">설질(색)</p>
+        <script>
+            for(var i=0; i<5; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r0" id="r0' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label">')
+                if (i == 0){document.write('담홍설');}
+                if (i == 1){document.write('담백설');}
+                if (i == 2){document.write('홍설');}
+                if (i == 3){document.write('강설');}
+                if (i == 4){document.write('자설');}
+                document.write('</label> </div>')}
+        </script>
+    </div>
+    </td></tr>
+
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 82px;">어반</p>
+        <script>
+            for(var i=0; i<2; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r1" id="r1' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label" for="inlineRadio1">')
+                if (i == 0){document.write('무');}
+                if (i == 1){document.write('유');}
+                document.write('</label>')
+            }
+        </script>
+    </div>
+    </td></tr>
+
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 82px;">치흔</p>
+        <script>
+            for(var i=0; i<2; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r2" id="r2' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label" for="inlineRadio1">')
+                if (i == 0){document.write('무');}
+                if (i == 1){document.write('유');}
+                document.write('</label>')
+            }
+        </script>
+    </div>
+    </td></tr>
+
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 34px;">심장_설열</p>
+        <script>
+            for(var i=0; i<2; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r3" id="r3' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label" for="inlineRadio1">')
+                if (i == 0){document.write('무');}
+                if (i == 1){document.write('유');}
+                document.write('</label>')
+            }
+        </script>
+    </div>
+    </td></tr>
+
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 34px;">대장_설태</p>
+        <script>
+            for(var i=0; i<6; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r4" id="r4' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label" for="inlineRadio1">')
+                if (i == 0){document.write('무태');}
+                if (i == 1){document.write('박백태');}
+                if (i == 2){document.write('백태');}
+                if (i == 3){document.write('황태');}
+                if (i == 4){document.write('회태');}
+                if (i == 5){document.write('흑태');}
+                document.write('</label>')
+            }
+        </script>
+    </div>
+    </td></tr>
+
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 34px;">위장_설태</p>
+        <script>
+            for(var i=0; i<6; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r5" id="r5' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label" for="inlineRadio1">')
+                if (i == 0){document.write('무태');}
+                if (i == 1){document.write('박백태');}
+                if (i == 2){document.write('백태');}
+                if (i == 3){document.write('황태');}
+                if (i == 4){document.write('회태');}
+                if (i == 5){document.write('흑태');}
+                document.write('</label>')
+            }
+        </script>
+    </div>
+    </td></tr>
+
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 55px;">폐_설태</p>
+        <script>
+            for(var i=0; i<6; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r6" id="r6' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label" for="inlineRadio1">')
+                if (i == 0){document.write('무태');}
+                if (i == 1){document.write('박백태');}
+                if (i == 2){document.write('백태');}
+                if (i == 3){document.write('황태');}
+                if (i == 4){document.write('회태');}
+                if (i == 5){document.write('흑태');}
+                document.write('</label>')
+            }
+        </script>
+    </div>
+    </td></tr>
+
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 55px;">폐_설반</p>
+        <script>
+            for(var i=0; i<2; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r7" id="r7' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label" for="inlineRadio1">')
+                if (i == 0){document.write('무');}
+                if (i == 1){document.write('유');}
+                document.write('</label>')
+            }
+        </script>
+    </div>
+    </td></tr>
+
+    <tr><td colspan="2">
+    <div class="questioniner">
+        <p id="qtitle" style="float: left; margin-right: 55px;">설첨_홍</p>
+        <script>
+            for(var i=0; i<2; i++){
+                document.write("<div class='form-check form-check-inline'>");
+                document.write('<input class="form-check-input" type="radio" name="r8" id="r8' + i + '" onclick="return(false)">');
+                document.write('<label class="form-check-label" for="inlineRadio1">')
+                if (i == 0){document.write('무');}
+                if (i == 1){document.write('유');}
+                document.write('</label>')
+            }
+        </script>
+    </div>
+    </td></tr>
+
+    </div>
+</table>

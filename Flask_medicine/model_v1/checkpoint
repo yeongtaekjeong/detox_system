@@ -1,0 +1,2 @@
+model_checkpoint_path: "medicine_model_v1"
+all_model_checkpoint_paths: "medicine_model_v1"

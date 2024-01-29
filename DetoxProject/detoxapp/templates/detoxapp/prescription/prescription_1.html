@@ -1,0 +1,455 @@
+{% load static %}
+<div class="result_graph">
+    <div class="card col-sm-12 scroll" id='result_data' style="height: 100%; float: left; overflow: scroll; padding: 10px; font-size: .8em;">
+        <table class="tg col-sm-12">
+            <thead>
+                <tr>
+                    <td class="tg bg-light "><h6 class="fw-bolder p-1 mb-1">키</h6></td>
+                    <td class="tg text-dark" id="data2_1"><span id="ii">{{ first_tab.height }} cm</span></td>
+                    <td class="tg bg-light "><h6 class="fw-bolder p-1 mb-1">현재체중</h6></td>
+                    <td class="tg text-dark" id="data2_2"><span id="ii">{{ first_tab.weight }} kg</span></td>
+                    <td class="tg bg-light " colspan="3"><h6 class="fw-bolder p-1 mb-1">20대 초중반 체중</h6></td>
+                    <td class="tg text-dark" id="data2_3"><span id="ii">{{ first_tab.weight_20age }} kg</span></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tg bg-light" colspan="2"><h6 class="fw-bolder p-1 mb-1">20대 최고 체중</h6></td>
+                    <td class="tg text-dark" colspan="2" id="data2_4"><span id="ii">{{ first_tab.weight_high }} kg</span></td>
+                    <td class="tg bg-light"><h6 class="fw-bolder p-1 mb-1">사유</h6></td>
+                    <td class="tg text-dark" colspan="3" id="data2_5">{{ first_tab.reason_high }}</td>
+                </tr>
+                <tr>
+                    <td class="tg bg-light" colspan="2"><h6 class="fw-bolder p-1 mb-1">20대 최저 체중</h6></td>
+                    <td class="tg text-dark" colspan="2" id="data2_6"><span id="ii">{{ first_tab.weight_low }} kg</span></td>
+                    <td class="tg bg-light"><h6 class="bg-light fw-bolder p-1 mb-1">사유</h6></td>
+                    <td class="tg text-dark" colspan="3" id="data2_7">{{ first_tab.reason_low }}</td>
+                </tr>
+                <tr>
+                    <td class="tg bg-light"><h6 class="fw-bolder p-1 mb-1">해독유형<br>(1~6)</h6></td>
+                    <td class="tg bg-light"><h6 class="fw-bolder p-1 mb-1">청혈해독요구지수</h6></td>
+                    <td class="tg bg-light"><h6 class="fw-bolder p-1 mb-1">현재 BMI<br>(현재체중)</h6></td>
+                    <td class="tg bg-light"><h6 class="fw-bolder p-1 mb-1">정상 BMI<br>(정상체중)</h6></td>
+                    <td class="tg bg-light" colspan="4"><h6 class="fw-bolder p-1 mb-1">건강한 체중</h6></td>
+                </tr>
+                <tr>
+                    <td class="tg text-dark">{{ third_tab.decoding_type|add:'0' }} 유형</td>
+                    <td class="tg text-dark">{{ third_tab.decoding_score|cut:"0."}} 점</td>
+                    <td class="tg text-dark">{{ first_tab.weight }} kg</td>
+                    <td class="tg text-dark">{{ prescription_result.normal_weight }} kg</td>
+                    <td class="tg text-dark" colspan="4">{{ prescription_result.healthy_weight }} kg</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <p class="mb-2"></p>
+
+        <div>
+            <h6 class="fw-bolder mb-2" id="hidden_title" hidden>■ AI 문진 분석 결과</h6>
+
+            <div class="alert alert-success p-2 mb-1" id="printnotarea1" style="text-align: center;">
+                <h6>귀하의 해독유형은 <span class="badge text-bg-success" style="font-size:1em"> {{third_tab.decoding_type|add:'0'}}유형</span>입니다.</h6>
+            </div>
+            
+            <div class="alert alert-primary p-2 mb-1" id="printnotarea1" style="text-align: center;">
+                <h6>귀하의 종합 해독 요구 지수는 
+                    <span class="badge text-bg-primary" style="font-size:1em" id="total_score">{{third_tab.decoding_score|cut:"0."}}점</span>입니다.</h6>
+            </div>
+            
+            <table class="tg text-dark">
+                <tr>
+                    <td>
+                        <div class="text-dark m-0 align-items-start" id="chart_div" style="text-align: left; height: 370px;"><!--chart area--></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h6 class="fw-bolder mb-2" id="hidden_title" hidden>■ AI 설진 분석 결과</h6>
+        </div>
+        <table class="col-sm-12 tg">
+            <tbody>
+                <tr>
+                    <td class="tg" colspan="3" style="width: 40%"><h6 class="bg-light fw-bolder p-1 mb-1">혀 사진</h6></td>
+                    <td class="tg" colspan="5" style="width: 60%"><h6 class="bg-light fw-bolder p-1 mb-1">AI 설진 분석 결과</h6></td>
+                </tr>
+                <tr>
+                    <td class="tg text-dark" colspan="3" rowspan="2" style="padding: 10px;">
+                        <div class="align-items-center" style="background-color: black;">
+                            {% with first_tab.file_name as file_name %}
+                            <img class="img-fluid" src="../../../static/detoxapp/image/tongue_images/{{file_name}}.jpg" alt="..."  style="width: 230px; height: 270px;">
+                            {% endwith %}
+                        </div>
+                    </td>
+                    <td class="tg text-dark text-lg-start p-1" colspan="5" style="text-align: left;">
+                        <p id="tongue_result" hidden>
+                            {{first_tab.tongue_color}}, {{first_tab.ecchymosis}},{{first_tab.scallop}},{{first_tab.large_intenstines_coating}},
+                            {{first_tab.stomach_coating}},{{first_tab.left_lung_coating}},{{first_tab.ecchymosis}},{{first_tab.tongue_tip_redness}}
+                        </p>
+                        <p class="fw-bolder col-sm-12" style="font-size: 1.1em;">◆ 혀 전체 영역 진단</p>
+                        <!-- 설질 tongue_color -->
+                        <p><span class="badge bg-light rounded-4 text-primary fw-bolder col-sm-2" style="font-size: 1em;">설질(색)</span>&emsp;
+                            {% with "0담홍설 1담백설 2홍설 3강설 4자설" as valuelist %}
+                            {% for v in valuelist.split %}
+                                {% if first_tab.tongue_color == v|slice:'0:1'|add:'0' %}
+                                    <span class="checkstate">■</span>
+                                {% else %}
+                                    <span>□</span>
+                                {% endif %}
+                                {{v|slice:'1:'}} &nbsp;
+                            {% endfor %}
+                            {% endwith %}
+                        </p>
+                        <!-- 설태 tongue_coating -->
+                        <p><span class="badge bg-light rounded-4 text-primary fw-bolder col-sm-2"  style="font-size: 1em;">설태</span>&emsp;
+                            {% with "0무태 1박백태 2백태 3황태 4회태 5흑태" as valuelist %}
+                            {% for v in valuelist.split %}
+                                {% if first_tab.tongue_coating == v|slice:'0:1'|add:'0' %}
+                                    <span class="checkstate">■</span>
+                                {% else %}
+                                    <span class="checkstate">□</span>
+                                {% endif %}
+                                {{v|slice:'1:'}} &nbsp;
+                            {% endfor %}
+                            {% endwith %}
+                        </p>
+                        <!-- 설열 tongue_crack -->
+                        <p><span class="badge bg-light rounded-4 text-primary fw-bolder col-sm-2"  style="font-size: 1em;">설열</span>&emsp;
+                            {% with "1유 0무" as valuelist %}
+                            {% for v in valuelist.split %}
+                                {% if first_tab.tongue_crack == v|slice:'0:1'|add:'0' %}
+                                    <span class="checkstate">■</span>
+                                {% else %}
+                                    <span class="checkstate">□</span>
+                                {% endif %}
+                                {{v|slice:'1:'}} &nbsp;
+                            {% endfor %}
+                            {% endwith %}
+                        </p>
+                        <!-- 어반 ecchymosis -->
+                        <p><span class="badge bg-light rounded-4 text-primary fw-bolder col-sm-2"  style="font-size: 1em;">어반</span>&emsp;
+                            {% with "1유 0무" as valuelist %}
+                            {% for v in valuelist.split %}
+                                {% if first_tab.ecchymosis == v|slice:'0:1'|add:'0' %}
+                                    <span class="checkstate">■</span>
+                                {% else %}
+                                    <span class="checkstate">□</span>
+                                {% endif %}
+                                {{v|slice:'1:'}} &nbsp;
+                            {% endfor %}
+                            {% endwith %}
+                        </p>
+                        <!-- 치흔 scallop -->
+                        <p><span class="badge bg-light rounded-4 text-primary fw-bolder col-sm-2"  style="font-size: 1em;">치흔</span>&emsp;
+                            {% with "1유 0무" as valuelist %}
+                            {% for v in valuelist.split %}
+                                {% if first_tab.scallop == v|slice:'0:1'|add:'0' %}
+                                    <span class="checkstate">■</span>
+                                {% else %}
+                                    <span class="checkstate">□</span>
+                                {% endif %}
+                                {{v|slice:'1:'}} &nbsp;
+                            {% endfor %}
+                            {% endwith %}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tg text-dark text-lg-start p-1" colspan="5" style="text-align: left;">
+                        <!-- 영역별 진단 -->
+                        <p class="fw-bolder" style="font-size: 1.1em;">◆ 혀 영역별 진단</p>
+                        <p class="mb-0"><span class="badge bg-light rounded-4 text-success fw-bolder col-sm-2"  style="font-size: 1em;">대장 영역</span>
+                            <p style="padding-left: 20px;">
+                            <!-- 대장설태 large_intenstines_coating -->
+                            <span class="fw-bolder" style="font-size: 1.1em;">· 설태&emsp;</span> 
+                            {% with "0무태 1박백태 2백태 3황태 4회태 5흑태" as valuelist %}
+                            {% for v in valuelist.split %}
+                                {% if first_tab.large_intenstines_coating == v|slice:'0:1'|add:'0' %}
+                                    <span class="checkstate">■</span>
+                                {% else %}
+                                    <span class="checkstate">□</span>
+                                {% endif %}
+                                {{v|slice:'1:'}} &nbsp;
+                            {% endfor %}
+                            {% endwith %}<br>
+
+                            <!-- 대장설반 large_intenstines_spot -->
+                            <span class="fw-bolder" style="font-size: 1.1em;">· 설반&emsp;</span> 
+                            {% with "1유 0무" as valuelist %}
+                            {% for v in valuelist.split %}
+                                {% if first_tab.large_intenstines_spot == v|slice:'0:1'|add:'0' %}
+                                    <span class="checkstate">■</span>
+                                {% else %}
+                                    <span class="checkstate">□</span>
+                                {% endif %}
+                                {{v|slice:'1:'}} &nbsp;
+                            {% endfor %}
+                            {% endwith %}
+                            </p>
+                        </p>
+                    
+                        <p class="mb-0"><span class="badge bg-light rounded-4 text-success fw-bolder col-sm-2" style="font-size: 1em;">위장 영역</span>&nbsp;
+                            <p style="padding-left: 20px;">
+                                <!-- 위장설태 stomach_coating -->
+                                <span class="fw-bolder" style="font-size: 1.1em;">· 설태&emsp;</span> 
+                                {% with "0무태 1박백태 2백태 3황태 4회태 5흑태" as valuelist %}
+                                {% for v in valuelist.split %}
+                                    {% if first_tab.stomach_coating == v|slice:'0:1'|add:'0' %}
+                                        <span class="checkstate">■</span>
+                                    {% else %}
+                                        <span class="checkstate">□</span>
+                                    {% endif %}
+                                    {{v|slice:'1:'}} &nbsp;
+                                {% endfor %}
+                                {% endwith %}<br>
+                                <!-- 위장설태 stomach_crack -->
+                                <span class="fw-bolder" style="font-size: 1.1em;">· 설열&emsp;</span> 
+                                {% with "1유 0무" as valuelist %}
+                                {% for v in valuelist.split %}
+                                    {% if first_tab.stomach_crack == v|slice:'0:1'|add:'0' %}
+                                        <span class="checkstate">■</span>
+                                    {% else %}
+                                        <span class="checkstate">□</span>
+                                    {% endif %}
+                                    {{v|slice:'1:'}} &nbsp;
+                                {% endfor %}
+                                {% endwith %}
+                                </p>
+                        </p>
+
+                        <p class="mb-0"><span class="badge bg-light rounded-4 text-success fw-bolder col-sm-2" style="font-size: 1em;">심장 영역</span>&nbsp;
+                            <p style="padding-left: 20px;">
+                                <!-- 심장설열 heart_crack -->
+                                <span class="fw-bolder" style="font-size: 1.1em;">· 설열&emsp;</span> 
+                                {% with "1유 0무" as valuelist %}
+                                {% for v in valuelist.split %}
+                                    {% if first_tab.heart_crack == v|slice:'0:1'|add:'0' %}
+                                        <span class="checkstate">■</span>
+                                    {% else %}
+                                        <span class="checkstate">□</span>
+                                    {% endif %}
+                                    {{v|slice:'1:'}} &nbsp;
+                                {% endfor %}
+                                {% endwith %}
+                                </p>
+                        </p>
+
+                        <p class="mb-0"><span class="badge bg-light rounded-4 text-success fw-bolder col-sm-2" style="font-size: 1em;">폐 영역</span>&nbsp;
+                            <p style="padding-left: 20px;">
+                                 <!-- 폐 설태 left_lung_coating -->
+                                <span class="fw-bolder" style="font-size: 1.1em;">· 설태&emsp;</span> 
+                                {% with "0무태 1박백태 2백태 3황태 4회태 5흑태" as valuelist %}
+                                {% for v in valuelist.split %}
+                                    {% if first_tab.left_lung_coating == v|slice:'0:1'|add:'0' %}
+                                        <span class="checkstate">■</span>
+                                    {% else %}
+                                        <span class="checkstate">□</span>
+                                    {% endif %}
+                                    {{v|slice:'1:'}} &nbsp;
+                                {% endfor %}
+                                {% endwith %} <br>
+
+                                <!-- 폐 설열 left_lung_crack -->
+                                <span class="fw-bolder" style="font-size: 1.1em;">· 설열&emsp;</span> 
+                                {% with "1유 0무" as valuelist %}
+                                {% for v in valuelist.split %}
+                                    {% if first_tab.left_lung_crack == v|slice:'0:1'|add:'0' %}
+                                        <span class="checkstate">■</span>
+                                    {% else %}
+                                        <span class="checkstate">□</span>
+                                    {% endif %}
+                                    {{v|slice:'1:'}} &nbsp;
+                                {% endfor %}
+                                {% endwith %} &emsp; 
+
+                                <!-- 폐 설반 left_lung_spot -->
+                                <span class="fw-bolder" style="font-size: 1.1em;">· 설반&emsp;</span> 
+                                {% with "1유 0무" as valuelist %}
+                                {% for v in valuelist.split %}
+                                    {% if first_tab.left_lung_spot == v|slice:'0:1'|add:'0' %}
+                                        <span class="checkstate">■</span>
+                                    {% else %}
+                                        <span class="checkstate">□</span>
+                                    {% endif %}
+                                    {{v|slice:'1:'}} &nbsp;
+                                {% endfor %}
+                                {% endwith %}
+                            </p>
+                        </p>
+
+                        <p class="mb-0"><span class="badge bg-light rounded-4 text-success fw-bolder col-sm-2" style="font-size: 1em;">설첨(혀끝) 영역</span>&nbsp;
+                            <p style="padding-left: 20px;">
+                                 <!-- 설첨홍 tongue_tip_redness -->
+                                <span class="fw-bolder" style="font-size: 1.1em;">· 홍색&emsp;</span> 
+                                {% with "1유 0무" as valuelist %}
+                                {% for v in valuelist.split %}
+                                {% if first_tab.tongue_tip_redness == v|slice:'0:1'|add:'0' %}
+                                    <span class="checkstate">■</span>
+                                {% else %}
+                                    <span class="checkstate">□</span>
+                                {% endif %}
+                                {{v|slice:'1:'}}  &nbsp;
+                                {% endfor %}
+                                {% endwith %}  &emsp;
+
+                                 <!-- 위장설태 tongue_tip_spot -->
+                                 <span class="fw-bolder" style="font-size: 1.1em;">· 설반&emsp;</span> 
+                                 {% with "1유 0무" as valuelist %}
+                                 {% for v in valuelist.split %}
+                                     {% if first_tab.tongue_tip_spot == v|slice:'0:1'|add:'0' %}
+                                         <span class="checkstate">■</span>
+                                     {% else %}
+                                         <span class="checkstate">□</span>
+                                     {% endif %}
+                                     {{v|slice:'1:'}} &nbsp;
+                                 {% endfor %}
+                                 {% endwith %}
+                            </p>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="tg" colspan="8"  style="page-break-before:always;">
+                        <h6 class="bg-light fw-bolder p-1 mb-1">(패턴설진에 따른) 예상 질환</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tg text-dark p-2" colspan="8">
+                        <textarea type="text" class="form-control p-2" id="predict_result_area" style="font-size: 1.1em; overflow: visible;">
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tg" colspan="5"><h6 class="bg-light fw-bolder p-1 mb-1">현재 복용 중인 약물 </h6></td>
+                    <td class="tg" colspan="3"><h6 class="bg-light fw-bolder p-1 mb-1">과거 병력</h6></td>
+                </tr>
+                <tr>
+                    <td class="tg text-dark" colspan="5" id="tbtext">
+                        복용중인 약물 : {{ first_tab.medication|cut:"["|cut:"]"|cut:"'" }} <br> {{ first_tab.medication_etc }}
+                        
+                    </td>
+                    <td class="tg text-dark" colspan="3" rowspan="3" id="tbtext">
+                        <!-- <span id="data3_3"> -->
+                            과거병력 : 
+                            {% if first_tab.pmhx == "['위암']" %}
+                                소화기 암 <br> {{ first_tab.pmhx_etc }}
+                            {% else %}
+                                {{ first_tab.pmhx|cut:"["|cut:"]"|cut:"'" }} <br> {{ first_tab.pmhx_etc }}
+                            {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tg" colspan="5"><h6 class="bg-light fw-bolder p-1 mb-1">현재 복용 중인 건강기능식품</h6></td>
+                </tr>
+                <tr>
+                    <td class="tg text-dark" colspan="5" id="tbtext">
+                        복용중인 건강식품 : 
+                        {% if first_tab.health_food_etc == '' %}
+                            해당 없음
+                        {% else %}
+                            {{ first_tab.health_food_etc }}
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <td class="tg" colspan="8"><h6 class="bg-light fw-bolder p-1 mb-1">주소증</h6></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tg text-dark p-2" colspan="8">
+                        {% if first_tab.chief_complain %} {{first_tab.chief_complain}} {% else %} 해당없음 {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+            <br>
+
+        <table>
+            <tr>
+                <h6 class="fw-bolder mb-2" id="hidden_title" hidden>■ AI 처방약 추천 결과</h6>
+            </tr>
+            <thead>
+                <tr>
+                    <th class="tg" colspan="8"><h6 class="bg-light fw-bolder p-1 mb-1">개인맞춤 추천 해독처방</h6></th>
+                </tr>
+            </thead>
+            <tbody id="medicine">
+            <tr>
+                <td class="tg text-dark p-3" colspan="8">
+                    <div class="p-3 mb-0 col-sm-7 bg-light rounded-4" id="print_service_area" style="float: left;">
+                        <h5 class="fw-bolder mb-3"><span class="text-success d-inline">AI 추천 처방</span></h5>
+                        <div class="area row row-cols-5 row-cols-md-5 mb-0" id="service_area" style="font-size: .95em; text-align: center;">
+                            {% with '1청일수 2청이장 3청삼혈 4청사심 5청오식 6청육행 7청칠위 8청팔보 9청구력' as resultlist %}
+                                {% for i in resultlist.split %}
+                                    <div class="d-flex mb-2" id="medicine{{i.0}}_b">
+                                        {% if i|slice:'1:' in prescription_result.expert %}
+                                        <div class="align-items-center bg-primary text-light rounded-4 p-3 recommendation" id="medicine{{i.0}}" 
+                                            onclick="move_event('medicine{{i.0}}')">
+                                            {{i.0}}<br>{{i|slice:'1:'}}</div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% endwith %}
+                            <div class="d-flex mb-2" id="medicine10_b">
+                                {% if '청시원' in prescription_result.expert %}
+                                <div class="align-items-center bg-primary text-light rounded-4 p-3 recommendation" id="medicine10" onclick="move_event('medicine10')">
+                                    10<br>청시원</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-2 mb-0 col-sm-5" style="float: right;" id="no_service_area_hide">
+                        <div class="area row row-cols-5 row-cols-md-5 mb-0" id="no_service_area" style="font-size: .8em;">
+                            {% with '1청일수 2청이장 3청삼혈 4청사심 5청오식 6청육행 7청칠위 8청팔보 9청구력' as resultlist %}
+                                {% for i in resultlist.split %} 
+                                    <div class="d-flex mb-2" id="medicine{{i.0}}_b">
+                                        {% if i|slice:'1:' not in prescription_result.expert %}
+                                        <div class="align-items-center bg-light text-dark rounded-4 p-3" id="medicine{{i.0}}" onclick="move_event('medicine{{i.0}}')">
+                                            {{i.0}}<br>{{i|slice:'1:'}}</div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% endwith %}
+                            <div class="d-flex mb-2" id="medicine10_b">
+                                {% if '청시원' not in prescription_result.expert %}
+                                <div class="align-items-center bg-light text-dark rounded-4 p-3" id="medicine10" onclick="move_event('medicine10')">
+                                    10<br>청시원</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form action="/prescription_save/" method="post">
+                        {% csrf_token %}
+                        <input type="text" value="{{ prescription_result.expert }}" name="expert" hidden>
+                        <input type="text" value="{{ first_tab.question_sq }}" name="question_sq" hidden>
+                        <button type="submit" id="expert_data" hidden></button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td class="tg" colspan="8"><h6 class="bg-light fw-bolder p-1 mb-1">개인맞춤 생활습관 처방(라이프 스타일 코칭)</h6></td>
+            </tr>
+            <tr>
+                <td class="tg p-2" colspan="8" id="tbtext">
+                    <!-- <input type="text" class="form-control" palceholder="개인맞춤 생활습관 처방을 입력해주세요."> -->
+                    <textarea type="text" class="form-control" id="life_style_recommend" placeholder="개인맞춤 생활습관 처방을 입력해주세요."
+                    style="font-size: 1.1em; overflow: visible;"></textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

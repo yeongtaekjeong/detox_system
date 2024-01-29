@@ -1,0 +1,58 @@
+.scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table .tg{
+    border: 1px solid black;
+}
+
+table .tg.text-dark{
+    font-size: 1.05em;
+}
+
+table #ii{
+    float:right;
+    margin-right: 5px;
+}
+
+table #tbtext{
+    text-align: left;
+    padding: 10px;
+}
+
+#tab-menu {
+    font-size: 1.2em;
+}
+
+.tg span.circle {
+    border: .5px solid blue; 
+    border-radius: 40%;
+}
+
+.tg span.checkstate {
+    color:blue;
+}
+
+td textarea::-webkit-scrollbar{
+    display: none;
+}
+
+/* @page{
+    width:1000px;
+}
+
+@media print {
+    @media (max-width:760px){
+        section{
+            width:1050px;
+            position: relative;
+            background-color: blue;
+        }
+    }
+} */
+

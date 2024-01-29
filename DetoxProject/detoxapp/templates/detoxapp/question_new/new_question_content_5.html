@@ -1,0 +1,131 @@
+<div class="container section_5  col-sm-9">
+    <input type="text" value="{{question_sq}}" name='question_sq' hidden>
+    <div class="row card questioniner">
+        <span class="card-header p-1 "><strong>{{ numbering.5.0 }}.</strong> 주소증(선택입력)</span>
+        <div class="qbox p-2 text-dark">
+            <div class="input-group mb-3" id="lineinput">
+                <textarea class="form-control p-2" name="chief_complain" placeholder="자유롭게 입력"></textarea>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="row card questioniner">
+        <span class="card-header p-1 "><strong>{{ numbering.5.1 }}.</strong> 과거병력</span>
+        <div class="qbox p-1 text-dark">
+            <p style="font-size: .8em; text-align: left; width: 100%;">* '해당없음'버튼 체크해제 후 선택</p> 
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx1" value="해당없음" checked>
+                <label class="form-check-label" for="pmhx1">해당없음</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx2" value="당뇨" disabled>
+                <label class="form-check-label" for="pmhx2">당뇨</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx3" value="고혈압" disabled>
+                <label class="form-check-label" for="pmhx3">고혈압</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx4" value="심혈관질환" disabled>
+                <label class="form-check-label" for="pmhx4">심혈관질환</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx5" value="뇌혈관질환" disabled>
+                <label class="form-check-label" for="pmhx5">뇌혈관질환</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx6" value="암" disabled>
+                <label class="form-check-label" for="pmhx6">암</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx7" value="위암" disabled>
+                <label class="form-check-label" for="pmhx7">위암</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx8" value="자가면역질환" disabled>
+                <label class="form-check-label" for="pmhx8">자가면역질환</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx9" value="치매" disabled>
+                <label class="form-check-label" for="pmhx9">치매</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="pmhx" id="pmhx10" value="피부질환" disabled>
+                <label class="form-check-label" for="pmhx10">피부질환</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row card questioniner">
+        <span class="card-header p-1 "><strong>{{ numbering.5.2 }}.</strong> 기타_과거병력(선택입력)</span>
+        <div class="qbox text-dark">
+            <div class="input-group mb-3" id="lineinput">
+                <textarea class="form-control p-2" name="pmhx_etc" placeholder="자유롭게 입력"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="row card questioniner">
+        <span class="card-header p-1 "><strong>{{ numbering.5.3 }}.</strong> 현재복용중인약물</span>
+        <div class="qbox p-1 text-dark">
+            <p style="font-size: .8em; text-align: left; width: 100%;">* '해당없음'버튼 체크해제 후 선택</p> 
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="medication" id="medication1" value="해당없음" checked>
+                <label class="form-check-label" for="medication1">해당없음</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="medication" id="medication2" value="당뇨" disabled>
+                <label class="form-check-label" for="medication2">당뇨</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="medication" id="medication3" value="고혈압" disabled>
+                <label class="form-check-label" for="medication3">고혈압</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="medication" id="medication4" value="고지혈증" disabled>
+                <label class="form-check-label" for="medication4">고지혈증</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row card questioniner">
+        <span class="card-header p-1 "><strong>{{ numbering.5.4 }}.</strong>기타_현재 복용 중인 약물(선택입력)</span>
+        <div class="qbox p-2 text-dark">
+            <div class="input-group mb-3" id="lineinput">
+                <textarea class="form-control p-2" name="medication_etc" placeholder="자유롭게 입력"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row card questioniner">
+        <span class="card-header p-1 "><strong>{{ numbering.5.5 }}.</strong>현재 복용 중인 건강식품</span>
+        <div class="qbox p-1 text-dark">
+            <p style="font-size: .8em; text-align: left; width: 100%;">* '해당없음'버튼 체크해제 후 선택</p> 
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="health_food" id="health_food1" value="해당없음" checked>
+                <label class="form-check-label" for="health_food1">해당없음</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="health_food" id="health_food2" value="종합비타민" disabled>
+                <label class="form-check-label" for="health_food2">종합비타민</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="health_food" id="health_food3" value="유산균" disabled>
+                <label class="form-check-label" for="health_food3">유산균</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="health_food" id="health_food4" value="콜라겐" disabled>
+                <label class="form-check-label" for="health_food4">콜라겐</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row card questioniner">
+        <span class="card-header p-1 "><strong>{{ numbering.5.6 }}.</strong> 기타_현재 복용 중인 건강식품(선택입력)</span>
+        <div class="qbox p-2 text-dark">
+            <div class="input-group mb-3" id="lineinput">
+                <textarea class="form-control p-2" name="health_food_etc" placeholder="자유롭게 입력"></textarea>
+            </div>
+        </div>
+    </div>    
+</div>

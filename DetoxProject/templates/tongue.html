@@ -1,0 +1,47 @@
+{% load static %}
+{% block content %}
+<link href="{% static 'detoxapp/css/tongue.css' %}" rel="stylesheet">
+
+<div style="padding-left: 7.5%; padding-right: 7.5%; height: 100vh; font-size: 20px;">
+    <a class="menu">
+      <p id="menu">MENU</p>
+    </a>
+    <div class="show collapse-horizontal" id="collapsenav">
+    <ul class="nav flex-column" style="border-right:.5px solid #e2e2de; height:100%;">
+        <li class="nav-item" id="colnav">
+          <a class="nav-link" href="/tongue_define/">설진이란?</a>
+        </li>
+        <li class="nav-item" id="colnav">
+          <a class="nav-link" href="/tongue_wait/">설진대기자보기</a>
+        </li>
+        <li class="nav-item" id="colnav">
+          <a class="nav-link" href="/tongue_ai/">AI설진하기</a>
+        </li>
+        <li class="nav-item" id="colnav">
+          <a class="nav-link" href="/tongue_detail/">상세진단</a>
+        </li>
+        <li class="nav-item" id="colnav">
+          <a class="nav-link" href="/data_model_detail/">데이터 & 모델 상세</a>
+        </li>
+    </ul>
+    </div>
+
+<script>
+$(document).ready(function(){
+
+  let windowWidth = $(window).width();
+  if(windowWidth <= 400) {
+    $('#menu').attr('data-bs-toggle','collapse');
+    $('#menu').attr('data-bs-target','#collapsenav');
+    $('#menu').attr('aria-controls','collapsenav');
+    $('.collapse').removeClass('show')
+    $('.collapse').addClass('hide')
+  }  
+})
+</script>
+  {% block content_side %}
+  {% endblock %}
+</div>
+</body>
+</html>
+{% endblock %}

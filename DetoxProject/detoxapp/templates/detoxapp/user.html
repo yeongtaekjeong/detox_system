@@ -1,0 +1,183 @@
+<!-- #"name", "username", "email", "password", "birth", "gender", "join_date" -->
+{% extends "index_base.html" %} 
+{% block contents %}
+{% load static %}
+<!-- <link href="{% static 'detoxapp/css/nav.css' %}" rel="stylesheet"> -->
+
+<!-- ASSET CSS -->
+<script src="{% static 'detoxapp/js/user.js' %}"></script>
+<link href="{% static 'assets/feather/style.min.css' %}" rel="stylesheet">
+	<!-- Page content-->
+	<section class="py-5">
+		<div class="container px-5">
+			<!-- Contact form-->
+			<div class="bg-light rounded-4 py-3 px-4 px-md-5">
+				<div class="bg-light rounded-4 py-5 px-4 px-md-5">
+					<div class="text-center mb-3">
+						<h1 class="fw-bolder">계정관리</h1>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					<div class="wrapper col-sm-12" style="text-align: center;">
+						<div class="row justify-content-center">
+							<div class="card UserList">
+									<div class="card-content collapse show">
+										<div class="card-body">
+											<form method="POST" id="form" action="/user/">
+												{% csrf_token %}
+												<input type="hidden" name="Check" id="Check">
+												<input type="hidden" name="CheckPwd" id="CheckPwd">
+												<div class="table-responsive">
+													<table class="table default-ordering table-hover table-bordered table-middle">
+														<thead>
+															<tr>
+																<th>계정명</th>
+																<th>권한</th>
+																<th>액티브 상태</th>
+																<th>최근 로그인</th>
+																<th>계정 신청일</th>
+																<th>삭제</th>
+															</tr>
+														</thead>
+														<tbody>
+															{% for n in users %}
+															<tr id="{{n.id}}">
+																<td>{{n.username}}</td>
+																<td>
+																<select class="form-select user_groups">
+																	{% if n.groups.values.0.id == null %}
+																	<option value="" selected>설정된 권한 없음</option>
+																	{% endif %}
+																	{% for g in groups %}
+																	<option value="{{g.id}}"{% if g.id == n.groups.values.0.id %} selected {% endif %}>{{g.name}}</option>
+																	{% endfor %}
+																</select>
+																</td>
+																<td>
+																<label class="switch">
+																	<input type="checkbox" class="success user_active_switch" {% if n.is_active == True %}checked {% endif %}>
+																	<span class="slider round"></span>
+																</label>
+																</td>
+																<td>
+																	{% if n.last_login == null %}
+																	-
+																	{% else %}
+																	{{n.last_login|date:"Y-m-d, a h:i"}}
+																	{% endif %}
+																</td>
+																<td>{{n.date_joined|date:"Y-m-d, a h:i"}}</td>
+																<td>
+																	{% if n.id != 1 %}
+																	<div class="input-group">
+																		<input type="password" class="form-control password" placeholder="Enter Password">
+																		<div class="input-group-append">
+																			<button class="btn btn-danger" type="button" name='deleteUser'><i class="ft-trash-2"></i></button>
+																		</div>
+																	</div>
+																	{% else %}
+																	삭제 불가
+																	{% endif %}
+																</td>
+															</tr>
+															{% endfor %}
+														</tbody>
+													</table>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						<div class="row justify-content-center mt-2">
+							<div class="card GroupList">
+									<div class="card-content collapse show">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-4">
+													<form method="POST" id="addGroupForm" action="/addDeleteGroup/">
+														{% csrf_token %}
+														<div class="input-group mb-3">
+															<input type="text" class="form-control col-5" placeholder="권한명 입력" name="groupname" aria-describedby="button-addon2">
+															<button class="btn btn-outline-secondary" type="button" id="button-addon2" name="addGroup">권한 추가</button>
+														</div>
+			
+													</form>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12">
+													<form method="POST" id="groupForm" action="/addDeleteGroup/">
+													{% csrf_token %}
+													<input type="hidden" name="groupid" id="groupid">
+			
+													<div class="table-responsive">
+			
+														<table class="table table-bordered table-hover table-middle">
+															<thead>
+																<tr>
+																	<th>권한명</th>
+																	<th>고객문진결과관리</th>
+																	<th>계정관리</th>
+																	<th>삭제</th>
+																</tr>
+															</thead>
+															<tbody>
+															{% for p in permissions %}
+																<tr id="{{p.id}}">
+																	<td>{{p.name}}</td>
+																	<td>
+																	<label class="switch">
+																		<input type="checkbox" class="primary permission_switch" value="view_question_manage"
+																				{% if p.permission.view_question_manage == 1 %}checked {% endif %}>
+																		<span class="slider round"></span>
+																	</label>
+																	</td>
+																	<td>
+																	<label class="switch">
+																		<input type="checkbox" class="primary permission_switch" value="view_user_manage"
+																				{% if p.permission.view_user_manage == 1 %}checked {% endif %}>
+																		<span class="slider round"></span>
+																	</label>
+																	</td>
+																	<td>
+																		{% if p.id != 1 %}
+																		<a name="deleteGroup"><i class="ft-trash-2 danger"></i></a>
+																		{% else %}
+																		삭제 불가
+																		{% endif %}
+																	</td>
+																</tr>
+															{% endfor %}
+															</tbody>
+														</table>
+													</div>
+												</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+</body>
+</html>
+{% endblock %}

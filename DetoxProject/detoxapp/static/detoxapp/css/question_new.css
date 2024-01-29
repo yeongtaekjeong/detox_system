@@ -1,0 +1,190 @@
+/* new */
+.home-bg {
+    background-size:cover;
+    background-repeat: no-repeat;
+    font-family: "Plus Jakarta Sans";
+  }
+
+  /* home만 적용 (home) */
+.home-bg #home-title {
+  color: black;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+}
+
+#homei{
+  color: black;
+  float: left;
+  font-size: 2em;
+}
+
+.icon-group button {
+  border: 0;
+  background-color: transparent;
+}
+
+#nexti{
+  color: black;
+  float: right;
+  font-size: 1em;
+}
+
+#nexti:hover{
+  cursor: pointer;
+  color:white;
+}
+
+/* 문진입력페이지만 적용(content.html) */
+#mungintitle {
+  color: #f7f7f7;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+}
+
+.input-place {
+  width: 100%;
+  /* height: 35.5em; */
+  /* overflow-y: scroll; */
+  background-color: white;
+}
+
+.input-place::-webkit-scrollbar{
+  display: none;
+}
+
+.questioniner {
+  margin-bottom: 3%;
+  font-family: "Plus Jakarta Sans";
+}
+
+.questioniner .card-header{
+  background-color: #f7f7f7;
+  text-align: left;
+  color: black;
+  font-weight: 500;
+}
+
+.questioniner strong{
+  text-align: left;
+  color: black;
+  font-weight: bold;
+}
+
+.qbox {
+  width: 80%;
+  /* border-left: 5px solid #cbcbcb; */
+  /* border-right: 5px solid white; */
+}
+
+.qbox label {
+  font-size : 1.05em;
+  font-weight: lighter;
+}
+
+.qbox div{
+  font-size: 1em;
+  font-weight: bold;
+}
+
+footer {
+  z-index: 10;
+}
+
+
+/* ---------------home부터 하위 모두 적용 css(공통)------------------ */
+.home-bg > div {
+  height: 100%;
+  max-height: 100%;
+}
+
+.home-bg div form {
+  float: none;
+  text-align: center;
+  padding:3px;
+  height: 95%;
+}
+
+#inputform {
+  height: 100%;
+}
+
+#inputform::-webkit-scrollbar {
+  display: none;
+}
+
+.popover{
+  max-width:600px;
+}
+
+.popover-body {
+  height: 100px;
+}
+
+/* ------------------home 제외 하위만 적용 (하위공통)------------------ */
+form #tob-box {
+  height: 90%;
+}
+
+form #emptybox{
+  margin-bottom: 8%;
+}
+
+form #bottom-box {
+  min-height: 10%;
+  max-height: 10%;
+}
+
+.home-bg #btn-group button {
+  color: black;
+  font-size: .85em;
+  background-color: #F6F6F6;
+  border-radius: 15px;
+}
+
+.home-bg #btn-group button:hover {
+  color:black;
+  opacity: 0.5;
+}
+
+#top-box #h2box {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  color: white;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+}
+
+.nextbtn button {
+  width: 40%;
+  border-radius: 50px;
+  /* margin-top: 3px; */
+}
+
+.inputtext {
+  margin-bottom: 2%;
+}
+
+#zoomin, #zoomout {
+  box-shadow: 2px 2px 2px #c6c6c6;
+}
+
+#zoomin:active,#zoomout:active {
+  box-shadow: none;
+}
+
+
+/* ------------------end 부분 제외 하위만 적용------------------ */
+.endpage h6 {
+  font-family: "Plus Jakarta Sans";
+}
+
+.endpage #result_checkbtn_type,#result_checkbtn_score{
+  color:black;
+  text-decoration: underline;
+}
+.endpage #result_checkbtn_type,#result_checkbtn_score:hover {
+  opacity: 0.7;
+}

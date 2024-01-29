@@ -1,0 +1,13 @@
+psycopg2
+django==3.2.16
+
+# tongue flask
+flask
+flask_restx
+flask_cors
+torch
+ultralytics
+requests
+opencv-python
+pillow
+scikit-learn

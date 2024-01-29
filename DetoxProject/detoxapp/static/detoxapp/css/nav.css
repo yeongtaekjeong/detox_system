@@ -1,0 +1,133 @@
+/* nav bar */
+.navbar {
+  position:relative; 
+  z-index: 1; 
+  background-color: black;
+  /* transition-duration:'2s'; */
+  /* transition-delay: 0.2s; */
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.navbar ul>li{
+  color:white;
+  font-size: 1.2em;
+  float: left;
+  text-decoration: none;
+  width: 20%;
+  /* margin-right:20% */
+}
+
+.navbar #collapse_nav {
+  text-align: center;
+}
+
+.collapse td {
+  border-left: 1px solid #b6b6b6;
+}
+
+.collapse #undernav_box {
+  color:#ababab;
+  text-align: center;
+}
+
+/* #undernav_box {
+  margin-right: 5%;
+} */
+
+#undernav_box_title h6 {
+  font-size: .9em;
+  text-align: center;
+}
+
+#undernav_box ul {
+  padding-inline-start: 0;
+}
+
+#undernav_box li {
+  color:#ababab;
+  list-style-type: none;
+  font-size: .7em;
+  padding: 0;
+}
+#undernav_box li a{
+  margin: 0 auto;
+  text-decoration: none;
+  color:#ababab;
+}
+
+/*-----------------------공통-------------------------*/
+
+@media (max-width: 400px) {
+    .navbar-brand span {
+        display: block;
+    }
+  
+    .nav #colnav {
+        margin-bottom: 3em;
+        font-size: .3em;
+        position: relative;
+        word-break:break-all;
+        width: 100%;
+    }
+
+    #divline {
+      display: none;
+    }
+  }
+
+/*구분선*/
+  p.jb-division-line {
+    border-top: 1px solid #e2e2de;
+    margin: 5px 0 20px 0;
+  }
+  
+  /*main.html CSS*/
+  html, body {
+    height: 100%;
+  }
+  
+  /*side nav CSS*/
+  .menu{
+    text-decoration: none;
+    color: black;
+    width: 20%;
+  }
+  
+  .menu p {
+    font-weight: bold; 
+    width: 80%;
+  }
+  
+  #colnav {
+    margin-bottom: 1.2em;
+    font-size: .6em;
+    position: relative;
+    word-break:break-all;
+    width: 80%;
+  }
+  
+  #colnav a {
+    padding: 0;   
+  }
+  
+  #collapsenav {
+    width: 20%; 
+    height:100%; 
+    float: left;
+  }
+  /*-----------------------공통(끝)-------------------------*/
+
+
+   /*-----------------------회원가입. signup.html-------------------------*/
+  #inputbox {
+    margin-bottom: 15px;
+    margin-top: 5px;
+    font-size: .7em;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+#alertmsg {
+  font-size:8px;
+  float: left;
+}

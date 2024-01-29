@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="loading" data-textdirection="ltr">
+{% load static %}
+<head>
+<link rel="apple-touch-icon" href="/static/img/symbol_red.png">
+<link rel="shortcut icon" href="/static/img/symbol_red.png" type="image/x-icon">
+</head>
+
+<body>
+<input type="hidden" name="msg" value="{{msg}}">
+<input type="hidden" name="link" value="{{link}}">
+</body>
+</html>
+
+<script src="{% static 'detoxapp/js/jquery.js' %}" crossorigin="anonymous"></script>
+<script>
+var msg = $("input[name=msg]").val();
+var link = $("input[name=link]").val();
+
+if (msg == 'session_expired') { alert('세션이 만료되었습니다.\n다시 로그인 해주세요.') }
+else { alert(msg) }
+location.href=link
+</script>

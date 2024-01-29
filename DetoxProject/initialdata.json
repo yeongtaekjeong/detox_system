@@ -1,0 +1,39 @@
+[
+  {
+    "model": "auth.Group",
+    "pk": 1,
+    "fields": {
+      "name": "관리자",
+      "permissions": [5,6]
+    }
+  },
+  {
+    "model": "auth.Group",
+    "pk": 2,
+    "fields": {
+      "name": "일반사용자",
+      "permissions": [2]
+    }
+  },
+  {
+    "model": "auth.Group",
+    "pk": 4,
+    "fields": {
+      "name": "일반관리자",
+      "permissions": [5]
+    }
+  },
+    {
+    "model": "detoxapp.User",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$EgpdH574qnUqMirSaFMeHv$RoFv/EDMA62OVhEuLTBEZxWS7hSIRPiUqMrI/kuBxig=",
+      "username": "admin",
+      "email": "kca@kca21.com",
+      "is_active": 1,
+      "is_admin": 1,
+      "is_superuser":1,
+      "groups": [1]
+    }
+  }
+]

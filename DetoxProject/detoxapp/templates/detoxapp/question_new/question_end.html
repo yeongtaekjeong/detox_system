@@ -1,0 +1,143 @@
+{% extends 'question_new.html' %}
+
+{% block content %}
+{% load static %}
+<section class="py-5">
+  <div class="container px-5 mb-5">
+    <!-- Contact form-->
+    <div class="bg-light rounded-4 py-5 px-5 px-md-5 endpage">
+      <input type="text" value="{{question_sq}}" name='question_sq' hidden />
+          <div class="row col-md-12 p-3" style="text-align: center;">
+              <h3 class="fw-bolder text-primary" id="mungintitle">AI 분석 결과</h3>
+          </div>
+
+          <div class="row gx-5 col-md-12  justify-content-center" id="area_1" >
+              <div class="card" style="background-color: transparent; border:0">
+                  <div class="align-self-center">
+                      <img src="{% static '/detoxapp/image/ai.png' %}" class="card-img-top" style="height: 15em; width: 15em; background-color: transparent;">
+                  </div>
+                  <div class="card-body col-6 align-self-center" 
+                    style="text-align: center; font-weight: bold; border-radius: 10px;">
+                    <h5 class="card-title fw-bolder">AI 문진 분석</h5>
+                    <p class="card-text text-secondary">귀하의 문진 결과를 통해 AI가 자동으로 '해독유형' 및 '해독지수' 결과를 보여줍니다.</p>
+                  </div>
+                  <div class="card-body" style="text-align: center;">
+                      <span role="button" class="badge text-bg-primary" id="result_btn" style="font-size:1em">분석 결과보기</span>
+                  </div>
+              </div>
+          </div>
+    </div>
+  </div>
+  </section>
+</main>
+
+</body>
+<script>
+  var arrscore = null;
+  $('#result_btn').click(function(){
+      var question_sq = $('input[name=question_sq]').val()
+      postdata = {'question_sq':question_sq}
+
+      $.ajax({
+      type : 'post',           // 타입 (get, post, put 등등)
+      url : '/question_result/detox_type',           // 요청할 서버url
+      headers : {              // Http header
+          'X-CSRFTOKEN' : '{{ csrf_token }}'
+      },
+      dataType : 'json',       // 데이터 타입 (html, xml, json, text 등등)
+      data : postdata,
+      success : function(data) { // 결과 성공 콜백함수
+          $('#survey_end').removeAttr('hidden')
+          $('#area_1').empty();
+          $('#area_1').append('<div class="alert alert-success p-2" style="text-align: center;">'+
+          '<h6>귀하의 해독유형은 <span class="badge text-bg-success" style="font-size:1em"> '+data['detox_type_result']['ai_detox_type']+'유형</span>입니다.</h6></div>'+
+          '<div class="alert alert-primary p-2" style="text-align: center;">'+
+          '<h6>귀하의 종합 해독 요구 지수는 <span class="badge text-bg-primary" style="font-size:1em" id="total_score">'+data['detox_score_result']['ai_total_score']+
+          '점</span>입니다.</h6></div>'+
+          '<div class="mb-5" id="chart_div" style="height:30em"></div>'+
+          '<a role="button" href="/" class="badge text-bg-danger self-align-center col-sm-2" id="survey_end" style="font-size:1em; text-decoration: none;">문진 종료하기</a>')
+            
+          arrscore = data['detox_score_result']['ai_score_data']
+
+          google.charts.load('current', {packages: ['corechart', 'bar']});
+          google.charts.setOnLoadCallback(drawAxisTickColors);
+      },
+      error : function(request, status, error) { // 결과 에러 콜백함수
+          console.log(error)
+      }
+      })
+  })
+
+  function drawAxisTickColors() {
+    score = arrscore
+    var data = google.visualization.arrayToDataTable([
+            ['증상', '해독지수', {role:'style'}],
+            ['식욕', score[0],'color:#6666FF; width:6; opacity:0.7;'],
+            ['소화', score[1],'color:#006699; width:6; opacity:0.7;'],
+            ['대변', score[2],'color:#669966; width:6; opacity:0.7;'],
+            ['소변', score[3],'color:#66FF66; width:6; opacity:0.7;'],
+            ['수면', score[4],'color:#663366; width:6; opacity:0.7;'],
+            ['스트레스', score[5],'color:#663399; width:6; opacity:0.7;'],
+            ['땀', score[6],'color:#6633FF; width:6; opacity:0.7;'],
+            ['수족냉증', score[7],'color:#66FFFF; width:6; opacity:0.7;'],
+            ['손발저림', score[8],'color:#006699; width:6; opacity:0.7;'],
+            ['두통', score[9],'color:#FFCC99; width:6; opacity:0.7;'],
+            ['어지러움', score[10],'color:#FF33CC; width:6; opacity:0.7;'],
+            ['부종', score[11],'color:#FF9900; width:6; opacity:0.7;'],
+            ['갈증', score[12],'color:#FF3300; width:6; opacity:0.7;'],
+            ['경향통', score[13],'color:#66FFCC; width:6; opacity:0.7;'],
+            ['가슴답답', score[14],'color:#33CC99; width:6; opacity:0.7;'],
+            ['심계', score[15],'color:#FF3399; width:6; opacity:0.7;'],
+            ['상열감', score[16],'color:#993300; width:6; opacity:0.7;'],
+            ['만성피로', score[17],'color:#CCFF66; width:6; opacity:0.7;'],
+            ['생리통', score[18],'color:#CCCCCC; width:6; opacity:0.7;'],
+            ['생리주기', score[19],'color:#FFCCCC; width:6; opacity:0.7;'],
+    ]);
+
+    var options = {
+      chart: {
+        height:'100%'
+      },
+      chartArea: {width: '80%',
+      height:'100%',
+      backgroundColor:'white'
+      },
+      bar:{
+          groupWidth: "70%",
+      },
+      legend:'none',
+      backgroundColor:'transparent',
+      hAxis: {
+        backgroundColor:'red',
+        minValue: 0,
+        textStyle: {
+          bold: false,
+          fontSize: 12,
+          color: 'black'
+        },
+        titleTextStyle: {
+          bold: true,
+          fontSize: 18,
+          color: 'white'
+        }
+      },
+      vAxis: {
+        backgroundColor:'black',
+        textStyle: {
+          fontSize: 12,
+          bold: false,
+          color: 'black'
+        },
+        titleTextStyle: {
+          fontSize: 14,
+          bold: true,
+          color: 'white'
+        }
+      }
+    };
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+</script>
+
+{% endblock %}
