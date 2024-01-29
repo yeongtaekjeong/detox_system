@@ -46,33 +46,41 @@
         - 담당 화면의 데이터베이스 CRUD 기능 구현
         - 가상환경 내 Ubuntu 서버에 배포 및 도메인 적용
 
+
 - 메인화면
+  
 ![스크린샷 2024-01-29 104555](https://github.com/yeongtaekjeong/detox_system/assets/147578834/b8ac89e1-7e65-451f-b866-f5f2be08a3ef)
 
 
 - 문진화면 : 사용자 입력
+  
 ![스크린샷 2024-01-29 104600](https://github.com/yeongtaekjeong/detox_system/assets/147578834/df7aae05-8034-4907-b600-1ef9155f6f26)
 
 
 - 문진화면 : 문진항목 입력
+  
 ![스크린샷 2024-01-29 104607](https://github.com/yeongtaekjeong/detox_system/assets/147578834/08d4395d-ab5d-415a-8791-2a2d45340617)
 
 ![스크린샷 2024-01-29 104612](https://github.com/yeongtaekjeong/detox_system/assets/147578834/0b6a03a3-72d8-442a-9627-05b60a8ab261)
 
 
 - 문진 결과화면
+  
 ![스크린샷 2024-01-29 104617](https://github.com/yeongtaekjeong/detox_system/assets/147578834/d9e35242-ef88-486b-81a2-c38d79fc5bec)
 
 
 - 문진 완료 및 대기자 목록 화면
+  
 ![스크린샷 2024-01-29 104622](https://github.com/yeongtaekjeong/detox_system/assets/147578834/f1bc26b4-f9ea-41f6-baea-cc7054e8742b)
 
 
 - 설진 화면
+  
 ![스크린샷 2024-01-29 104630](https://github.com/yeongtaekjeong/detox_system/assets/147578834/18621905-9efa-4c24-adf6-71e980af4119)
 
 
 - 설진 완료 및 처방 화면
+  
 ![스크린샷 2024-01-29 104646](https://github.com/yeongtaekjeong/detox_system/assets/147578834/c5a5fecc-4b39-4368-a0b6-79263e8510e9)
 
 ![스크린샷 2024-01-29 104652](https://github.com/yeongtaekjeong/detox_system/assets/147578834/537555b1-c289-4e85-a2ef-823e25aa6e39)
